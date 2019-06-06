@@ -1,0 +1,191 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body {
+    padding: 0;
+    margin: 0;
+    height: 700px;
+    width: 100%;
+    background: black;
+}
+header{
+    height: 110px;
+}
+header p{
+    text-align: center;
+    color: white;
+    font-size: 80px;
+    font-family: "Baloo Da";
+    height: 60px;
+}
+header form{
+    position: relative;
+    top: 0;
+    left: 1400px;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid white;
+    padding: 5px;
+}
+
+header input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+header .fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+header form:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+header form:hover input{
+    display: block;
+}
+
+header form:hover .fa{
+    background: black;
+    color: white;
+}
+
+#first-content{
+    height: 500px;
+}
+
+#img1{
+    position: absolute;
+    width: 150px;
+    left: 150px;
+}
+#img2{
+    position: absolute;
+    width: 150px;
+    left: 300px;
+}
+#img3{
+    position: absolute;
+    width: 150px;
+    left: 450px;
+}
+#img4{
+    position: absolute;
+    width: 150px;
+    left: 600px;
+}
+#img5{
+    position: absolute;
+    width: 150px;
+    left: 750px;
+}
+#img6{
+    position: absolute;
+    width: 150px;
+    left: 900px;
+}
+#img7{
+    position: absolute;
+    width: 150px;
+    left: 1050px;
+}
+#img8{
+    position: absolute;
+    width: 150px;
+    left: 1200px;
+}
+
+
+
+#second-content{
+    height: 100px;
+}
+
+
+
+#new1{
+    position: absolute;
+    padding: 50px 0 0 200px;
+    display: none;
+}
+
+.year{
+    width: 100px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    border-right: 2px solid white;
+}
+
+.cont{
+    color: white;
+    font-size: 15px;
+}
+
+table{
+    border: 0px solid white;
+}
+
+.article-head{
+    font-size: 30px;
+}
+
+
+#top{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
+
+#left{
+    position: absolute;
+    top: 430px;
+    left: 170px;
+}
+
+#right{
+    position: absolute;
+    top: 430px;
+    right: 170px;
+}
+
+.yearn{ color: violet; }
+
+.yearn>h3
+{
+
+    padding: 80px 55px 0 50px;
+    float: left;
+}
+#y1945
+{
+    padding-left: 130px;
+}
