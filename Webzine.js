@@ -27,28 +27,15 @@ $(document).ready(function(){
 	$("#img1").click(function(){
 		$("#new1").css("display","block");
 	})
-	$("#img2").click(function(){
-		$("#new1").css("display","block");
-	})
-	$("#img3").click(function(){
-		$("#new1").css("display","block");
-	})
-	$("#img4").click(function(){
-		$("#new1").css("display","block");
-	})
-	$("#img5").click(function(){
-		$("#new1").css("display","block");
-	})
-	$("#img6").click(function(){
-		$("#new1").css("display","block");
-	})
-	$("#img7").click(function(){
-		$("#new1").css("display","block");
-	})
-	$("#img8").click(function(){
+	
+	$(".timebar").click(function(){
 		$("#new1").css("display","block");
 	})
 
+	$("#img8").click(function(){
+		$("#new1").css("display","block");
+	})
+	
 
 
 
