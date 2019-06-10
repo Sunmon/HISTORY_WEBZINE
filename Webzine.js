@@ -35,8 +35,18 @@ $(document).ready(function(){
 	$("#img8").click(function(){
 		$("#new1").css("display","block");
 	})
+
+	$(".cont").on("click",show_note_form);
 	
 
 
 
 });//end of ready
+function show_note_form(){
+	$("#note_form").addClass("popup");
+	change_position($(".popup"));
+	$(window).resize(function(){
+		change_position($(".popup"));
+	});
+	$("#note_form").slideDown("slow");
+}
