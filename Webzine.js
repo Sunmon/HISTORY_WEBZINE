@@ -50,3 +50,13 @@ function show_note_form(){
 	});
 	$("#note_form").slideDown("slow");
 }
+
+function change_position(obj){
+	// obj.css("left",($(window).width()-$("#note_form").width())/2);
+	// obj.css("top",($(window).height()-$("#note_form").height())/2);
+
+	var l=($(window).width()-obj.width())/2+300;
+	var t=($(window).height()-obj.height())/2;
+
+	obj.css({top:t,left:l});
+}
