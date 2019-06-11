@@ -179,15 +179,68 @@ table{
 
 .yearn{ color: #FAD504; }
 
+
+/*
 .yearn>h3
 {
-
-    padding: 80px 55px 0 50px;
+   
     float: left;
 }
+*/
+
 #y1945
 {
-    padding-left: 130px;
+    position: absolute;
+    padding-top: 80px;
+    left: 130px;
+}
+#y1955
+{
+    position: absolute;
+    padding-top: 80px;
+    left: 280px;
+}
+#y1965
+{
+    position: absolute;
+    padding-top: 80px;
+    left: 430px;
+}
+#y1975
+{
+    position: absolute;
+    padding-top: 80px;
+    left: 580px;
+}
+#y1985
+{
+    position: absolute;
+    padding-top: 80px;
+    left: 730px;
+}
+#y1995
+{
+    position: absolute;
+    padding-top: 80px;
+    left: 880px;
+}
+#y2005
+{
+    position: absolute;
+    padding-top: 80px;
+    left: 1030px;
+}
+#y2015
+{
+    position: absolute;
+    padding-top: 80px;
+    left: 1180px;
+}
+#y2019
+{
+    position: absolute;
+    padding-top: 80px;
+    left: 1330px;
 }
 
 .popup{position: fixed;top: 100px;right: 50px;background-color: white;
