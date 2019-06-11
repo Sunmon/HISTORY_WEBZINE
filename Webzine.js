@@ -37,6 +37,7 @@ $(document).ready(function(){
 	})
 
 	$(".cont").on("click",show_note_form);
+	$("#close").on("click",push_note);
 	
 
 
@@ -49,6 +50,10 @@ function show_note_form(){
 		change_position($(".popup"));
 	});
 	$("#note_form").slideDown("slow");
+}
+
+function push_note(){
+	$("#note_form").show().fadeOut("slow");
 }
 
 function change_position(obj){
