@@ -80,7 +80,7 @@ header form:hover .fa{
 }
 
 #first-content{
-    height: 500px;
+    height: 450px;
 }
 
 #img1{
@@ -132,7 +132,7 @@ header form:hover .fa{
 
 
 
-#new1{
+#new1,#new2,#new3,#new4,#new5,#new6,#new7,#new8{
     position: absolute;
     padding: 50px 0 0 200px;
     display: none;
@@ -249,10 +249,13 @@ table{
 }
 
 .popup{position: fixed;top: 100px;right: 50px;background-color: white;
-    padding: 30px 20px;z-index: 1;width: 500px;height: 400px;
-    border: 1px solid black; color: black;}
+    padding: 40px 20px;z-index: 1;width: 500px;height: 400px;
+    border: 1px solid black; color: black;overflow: scroll;}
 #note_form{display: none;}
+#notef{
+    word-break:break-all;
 
+}
 #close{
     position: absolute;
     right: 0;

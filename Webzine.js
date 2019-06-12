@@ -1,4 +1,4 @@
-
+var number=0;
 
 $(document).ready(function(){
 
@@ -23,23 +23,57 @@ $(document).ready(function(){
 		$("#img8").attr("src","source/timebar3.jpg");
 	})
 
-
 	$("#img1").click(function(){
+		for(var i=0;i<8;i++){
+			$("#new"+i).css("display","none");
+		}
 		$("#new1").css("display","block");
 	})
-	
-	$(".timebar").click(function(){
-		$("#new1").css("display","block");
+	$("#img2").click(function(){
+		for(var i=0;i<8;i++){
+			$("#new"+i).css("display","none");
+		}
+		$("#new2").css("display","block");
 	})
-
+	$("#img3").click(function(){
+		for(var i=0;i<8;i++){
+			$("#new"+i).css("display","none");
+		}
+		$("#new3").css("display","block");
+	})
+	$("#img4").click(function(){
+		for(var i=0;i<8;i++){
+			$("#new"+i).css("display","none");
+		}
+		$("#new4").css("display","block");
+	})
+	$("#img5").click(function(){
+		for(var i=0;i<8;i++){
+			$("#new"+i).css("display","none");
+		}
+		$("#new5").css("display","block");
+	})
+	$("#img6").click(function(){
+		for(var i=0;i<8;i++){
+			$("#new"+i).css("display","none");
+		}
+		$("#new6").css("display","block");
+	})
+	$("#img7").click(function(){
+		for(var i=0;i<8;i++){
+			$("#new"+i).css("display","none");
+		}
+		$("#new7").css("display","block");
+	})
 	$("#img8").click(function(){
-		$("#new1").css("display","block");
+		for(var i=0;i<8;i++){
+			$("#new"+i).css("display","none");
+		}
+		$("#new8").css("display","block");
 	})
 
 	$(".cont").on("click",show_note_form);
 	$("#close").on("click",push_note);
-	
-
 
 
 });//end of ready
