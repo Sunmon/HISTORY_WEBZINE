@@ -43,6 +43,8 @@ $(document).ready(function(){
 
 
 });//end of ready
+
+//note popup 띄우기
 function show_note_form(){
 	$("#note_form").addClass("popup");
 	change_position($(".popup"));
@@ -52,9 +54,12 @@ function show_note_form(){
 	$("#note_form").slideDown("slow");
 }
 
+
+//note popup창 닫기
 function push_note(){
 	$("#note_form").show().fadeOut("slow");
 }
+
 
 function change_position(obj){
 	// obj.css("left",($(window).width()-$("#note_form").width())/2);
@@ -65,3 +70,13 @@ function change_position(obj){
 
 	obj.css({top:t,left:l});
 }
+
+//TODO: note popup의 내용 가져와서 채우기
+
+
+//TODO: 자료들 돌아서 년도 채우기
+
+
+//TODO: 검색기능
+
+
