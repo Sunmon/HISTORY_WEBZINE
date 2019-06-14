@@ -28,6 +28,7 @@ var router = express.Router();
 router.get("/",function(req,res,next)
 {
 	res.redirect("/Webzine.html");
+	// res.redirect("/source/source/Webzine.html")
 });
 
 
