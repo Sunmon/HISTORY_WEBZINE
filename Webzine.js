@@ -123,8 +123,33 @@ function fill_note(src_dir)
 	// src+dir = "./inclue/1995/"
 	// .load( url [, data ] [, complete ] ) 
 
-	$("#notef").load("./include/1995/1996-02-23-test.html");
+	// $("#notef").load("./include/1995/1996-02-23-test.html", function(req,res)
+	// {
+	// 	var re = "qweqweqe";
+	// 	$("#notef").append(res.result_msg);
+	// 	// $("#notef").append(res);
+	// 	$("#notef").append(re);
+	// 	$("#notef").append("<br/>asdf");
+	// });
 
+	
+	// $("#notef").load("./include/1995/1996-02-23-test.html", { "title": "이름바꿨다" } );
+
+	var reqq = $.ajax(
+		{
+			url: "/include/1995/1996-02-23-test.html",
+			type: "GET",
+			dataType: "html"});
+	reqq.done(function(data,status,jq){
+		// var students = JSON.parse(data);
+		var re = "ㄱㄷㄱㅈㄱㄷ";
+		$("#notef").append(data.result_msg);
+		$("#notef").append(status.result_msg);
+		$("#notef").append(jq.result_msg);
+		// $("#notef").append(res);
+		$("#notef").append(re);
+		$("#notef").append("<br/>ㅅㄷㄷ");
+		});
 
 }
 
@@ -173,6 +198,4 @@ $("#new3").html(year_articles);
 
 
 
-//TODO: 검색기능
-
-
+//TODO: 검색기능.. 검색도 new1 얘네한테 load시키면 되곘네.

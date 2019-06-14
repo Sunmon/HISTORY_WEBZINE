@@ -30,6 +30,10 @@ router.get("/",function(req,res,next)
 	res.redirect("/Webzine.html");
 });
 
+
+
+
+
 //router 동작. middleware로 달아줌.
 app.use("/", router);
 
@@ -83,6 +87,35 @@ fs.readdir(testFolder, function(error, filelist){
 
 	});
 
-
   console.log(filelist);
+});
+
+
+
+/**
+ * ******[테스트]팝업창에 load할 테스트**********************
+ */
+
+
+router.get("/include/1995/1996-02-23-test.html", function(req,res)
+{
+	console.log("ROUTER::call get function");
+	var msg = "result보낸다";
+	res.send({result_msg:msg});
+});
+
+
+//FIXME: app.get 안먹힘
+app.get("/include/1995/1996-02-23-test.html", function(req,res)
+{
+	console.log("APP::call get function");
+	var msg = "result보낸다";
+	res.send({result_msg:msg});
+});
+
+
+
+router.get("/routetest", function(req,res){
+	res.redirect("http://www.google.com");
+	console.log("redirect to GOOGLE:");
 });

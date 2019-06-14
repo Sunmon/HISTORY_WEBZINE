@@ -71,6 +71,21 @@ https://stackoverflow.com/questions/21603770/saving-data-to-the-database-via-jqu
 https://stackoverflow.com/questions/45105992/node-js-send-data-to-backend-with-ajax
 
 
-## html load
+## html load ... popup 내용 띄우는 데 사용
 
 https://offbyone.tistory.com/235
+
+https://findfun.tistory.com/398
+
+https://www.codingfactory.net/10358
+
+https://www.w3schools.com/jquery/jquery_ajax_load.asp
+
+https://rocabilly.tistory.com/27
+
+https://qkrrudtjr954.github.io/ajax/2018/02/08/ajax-load-func.html
+
+
+## post
+
+https://findfun.tistory.com/400
