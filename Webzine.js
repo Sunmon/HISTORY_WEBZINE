@@ -89,6 +89,7 @@ $(document).ready(function(){
 
 	set_yearn();
 	create_Table(1);
+	set_today_history();
 });//end of ready
 
 
@@ -317,6 +318,84 @@ $("#new3").html(year_articles);
 	//TODO: 클릭한 곳마다 내용 있는 디렉토리 다르게 하기. 배열로 저장하면 되겠다.
 	//TODO: src_dir에 있는 모든 파일 돌면서 년도 채우기
 
+// TODO: 오늘의 역사
+function set_today_history()
+{
+	//FIXME: 임시로 날짜 정해줌.
+	var today_month = 06;
+	var today_day = 29;
+
+	var history = [];
+	//리스트 돌면서 같은 날짜 있는지 찾기 ... 
+	//TODO: 더 좋은 알고리즘으로 바꾸기
+	var req = $.ajax("lists.json");
+	req.done(function(data, status){
+		for(var i = 0; i<data.length; i++)
+		{
+			var req2 = $.ajax(data[i].link);
+			req2.done((article)=>
+			{
+				for(var j = 0; j<article.length; j++)
+				{
+
+					var date = article[j].date; // 역사 날짜
+					var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
+					if(dateArr[1] == today_month && dateArr[2]==today_day)
+					{
+						var obj =
+						{title: article[j].title, summary: article[j].summary, link: article[j].link};
+
+						// obj.push({title: article[j].title, summary: article[j].summary, link: article[j].link});
+						history.push(obj);
+						// history.push({title: article[j].title, summary: article[j].summary, link: article[j].link});
+						// FIXME:for문 밖으로 나가면 history가 undefined
+						$("#todaytitle").text(history[0].title);
+						$("#todaycontent").text(history[0].summary);
+
+
+						// document.write(article[j].title);
+						// document.write(obj.title);
+					}
+				}
+			});
+		}
+		
+	});
+	// document.write(history[0].title);
+	
+	// $("#todaytitle").text(history[0].title);
+	// $("#todaycontent").text(history[0]).summary;
+
+
+
+	//TODO: foreach 문으로 바꾸기
+// 	req.done(function(data,status){
+// 		// data.each((dat)=>
+// 		$.each(data, (dat)=>
+// 		{
+// 			var req2 = $.ajax(dat.link);
+// 			req2.done((article)=>
+// 			{
+// 				var date = article[i].date; // 역사 날짜
+// 				var dateArr = article.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
+// 				if(date[1] == today_month && date[2]==today_day)
+// 				{
+// 					var obj;
+// 					obj.push({title: article.title, summary: article.summary, link: article.link});
+// // obj.push({id:1, square:2});
+// // var json = JSON.stringify(obj);
+// 					// history.push(article.link);
+// 					history.push(obj);
+// 				}
+// 			});
+// 		});
+
+// 		$("#todaytitle").text(history[0].title);
+// 		$("#todaycontent").text(history[0]).summary;
+// 		// $("#todaybutton").on("click", show_note_form);
+
+// });
+}
 
 
 //TODO: 검색기능.. 검색도 new1 얘네한테 load시키면 되곘네.
