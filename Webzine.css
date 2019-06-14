@@ -144,7 +144,8 @@ header form:hover .fa{
 
 .year{
     width: 100px;
-    color: white;
+    /* 색깔 코드 잘 돌아가는지 구분용으로 임시로 빨강해놓음 */
+    color: red; 
     font-size: 30px;
     text-align: center;
     border-right: 2px solid white;

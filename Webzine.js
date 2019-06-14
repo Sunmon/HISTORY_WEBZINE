@@ -79,6 +79,8 @@ $(document).ready(function(){
 	$("#close").on("click",push_note);
 
 
+
+	set_yearn();
 });//end of ready
 
 
@@ -124,12 +126,62 @@ function fill_note(src_dir)
 function set_yearn()
 {
 	//TODO: 파일 목록 불러오기 https://opentutorials.org/course/3332/21122
+	//file reader
+	// var testFolder = './include';
+	// var fs = require('fs');
+	// fs.readdir(testFolder, function(error, filelist){
+
+	//   console.log(filelist);
+
+//FIXME: list가 화면에 나오도록
+var list = $("<ul/>");
+var list_cont = $("<li/>").text("alkjsf");
+list.append("adsfdfdfdf");
+list.append(list_cont);
+$("#new1").css("color", "white");
+$("#new1").html(list);
+
+
+/***************************************************************************
+ * **임시:: new3에 데이터 읽어올 수 있는지 테스트****************************
+ *
+ *  
+ * */
+//FIXME: 임시로 new3에다 저장
+var list_src = "./test_1995s_list.json";
+var year_articles = $("<div/>");
+var req = $.ajax(list_src);
+req.done((data)=>
+{
+	for(var i = 0; i<data.length; i++)
+	{
+		var article = $("<tb/>");
+				//TODO: 1995를 그냥 json 에서 년도 가져온걸로 바꾸기
+				// var _year = $("<td/>").append($("<td/>").text("1995")).css("class", "year").attr("colspan", 2);
+				var _year = $("<td/>").append($("<td/>").text("1995")).addClass("year");
+				// var _date = $("<td/>").text(data[i].date).attr("colspan", 2).css("text-align", "center");
+				var _date = $("<td/>").text(data[i].date).attr("colspan", 2);
+				var _title = $("<td/>").text(data[i].title).attr("colspan", 2);
+				var _cont = $("<td/>").text(data[i].content).attr("colspan", 2);
+
+				article
+				.append($("<tr/>").append(_year).append($("<td/>")))
+				.append($("<tr/>").append($("<td/>")).append(_date))
+				.append($("<tr/>").append(_title))
+				.append($("<tr/>").append(_cont));
+
+		year_articles.append(article);
+	}
+});
+$("#new3").css("color", "white");
+$("#new3").html(year_articles);
+
 	//TODO: 클릭한 곳마다 내용 있는 디렉토리 다르게 하기. 배열로 저장하면 되겠다.
 	//TODO: src_dir에 있는 모든 파일 돌면서 년도 채우기
 
-}
 
 
 //TODO: 검색기능
 
+}
 

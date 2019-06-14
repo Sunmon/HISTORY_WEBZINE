@@ -32,3 +32,25 @@ router.get("/",function(req,res,next)
 
 //router 동작. middleware로 달아줌.
 app.use("/", router);
+
+
+
+//file reader
+var fs = require("fs");
+var testFolder = './include';
+fs.readdir(testFolder, function(error, filelist){
+  console.log(filelist);
+});
+
+
+// fs.readdir('./data', function(error, filelist){
+// 	var title = 'Welcome';
+// 	var description = 'Hello, Node.js';
+// 	var list = '<ul>';
+// 	var i = 0;
+// 	while(i < filelist.length){
+// 	  list = list + `<li><a href="/?id=${filelist[i]}">${filelist[i]}</a></li>`;
+// 	  i = i + 1;
+// 	}
+// 	list = list+'</ul>';
+// }

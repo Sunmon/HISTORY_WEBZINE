@@ -63,3 +63,10 @@ TCP/IP 소켓이란? : https://zzdd1558.tistory.com/64
 
 Node.js로 웹서버 만들기 : https://opentutorials.org/course/3332/21032
 
+
+## save data through ajax
+
+https://stackoverflow.com/questions/21603770/saving-data-to-the-database-via-jquery-ajax
+
+https://stackoverflow.com/questions/45105992/node-js-send-data-to-backend-with-ajax
+
