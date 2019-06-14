@@ -77,13 +77,16 @@ $(document).ready(function(){
 
 	})
 
+	//GOOD!
 	// $(".cont").on("click",show_note_form); // 요놈은 미리 생성되어 있어야만 가능한데 
 	$(document).on("click",".cont",show_note_form); // 요놈은 동적생성해도 가능함 ^^~
 	$("#close").on("click",push_note);
+	
 	/**
-	 * [테스트] server쪽 테스트중
+	 *****[테스트] server쪽 테스트중**
 	 */
-	fill_note("ser");
+	// fill_note("ser");
+
 	set_yearn();
 	create_Table(1);
 });//end of ready
@@ -133,6 +136,7 @@ function create_Table(Number){
 		article_Title = data[i].title; // 기사 제목 json 파일에서 불러오기
 		article_Content = data[i].content; // 기사 내용 json 파일에서 불러오기
 
+		
 		var date = data[i].date; // 역사 날짜
 		var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
 		 // 3개로 나눈것 ex 1999-04-14 면 dateArr[0] == 1999, dateArr[1] == 04, dateArr[2] == 14 참고로 이건 내생일 ㅎㅎ;
@@ -142,13 +146,40 @@ function create_Table(Number){
 		   var table1=$("<tr></tr>").append($("<td></td>").addClass('year').text(yearNumber)).append($("<td></td>").text(""));
 		   tb.append(table1);
 
-		   var table2 = $("<tr/>").append($("<td/>").addClass('year').text("")).append($("<td></td>").addClass('cont').append($("<h1></h1>").text(dateArr[1]+"월 "+dateArr[2]+"일")).append($("<br>")).append($("<img>",{
+		   var table2 = $("<tr/>").append($("<td/>").addClass('year').text(""))
+		   .append($("<td></td>").addClass('cont')
+		   .append($("<h1></h1>").text(dateArr[1]+"월 "+dateArr[2]+"일")).append($("<br>")).append($("<img>",{
 			   src:imgSrc,
 			   align:"left",
 			   alt:"180 X 180"
 		   })).append($("<span/>").addClass('article-head').text(article_Title)).append($("<div/>").text(article_Content).addClass('article=main'))); 
 
+
+
+// 		   var table2 = $("<tr/>");
+// 		   var _year = $("<td/>").append($("<td/>").text(yearNumber)).addClass("year");
+// 		   // var _date = $("<td/>").text(data[i].date).attr("colspan", 2).css("text-align", "center");
+// 		   var _date = $("<td/>").text(data[i].date).attr("colspan", 2);
+// 		   var _title = $("<td/>").text(data[i].title).attr("colspan", 2);
+// 		   var _cont = $("<td/>").text(data[i].content).attr("colspan", 2);
+
+// 		   article
+// 		   .append($("<tr/>").append(_year).append($("<td/>")))
+// 		   .append($("<tr/>").append($("<td/>")).append(_date))
+// 		   .append($("<tr/>").append(_title))
+// 		   .append($("<tr/>").append(_cont));
+
+//    year_articles.append(article);
+
+
+
+
+		   //FIXME: 링크를 어떻게 가져와야 할 지 몰라서 임시로 넣어둠
+		   var _link = data[i].link;
+		   table2.append($("<tr/>").append($("<td/>").text(_link)));
+		//    table3.addClass("link");
 		   tb.append(table2);
+
 
 
 		}
@@ -170,6 +201,28 @@ function show_note_form(){
 		change_position($(".popup"));
 	});
 	$("#note_form").slideDown("slow");
+
+
+	//맞는 내용 띄우기
+	// var _link = $(this).attr("id");
+	// var _link = $(this).$(".link");
+	// var _link = $(this)>$(".link").text();
+	// var tb = $(this);
+	// var _link =$(this).closest("table").children($("tr:eq(2)>td:eq(1)"));
+	// var tb = $(this).parent("tr");
+
+	// var _link =tb.next($("tr:eq(3)>td:eq(0)")).html();
+	var _link =$(this).next($("td:eq(0)")).text();
+	// var _temp = $(this).children($(".link")).text();
+	// document.write(_link);
+	// document.write(_temp);
+	// document.write(_link);
+	$("#notef").append(_link);
+	fill_note(_link);
+	
+	// document.write(_link);
+
+
 }
 
 
@@ -192,6 +245,7 @@ function change_position(obj){
 //TODO: note popup의 내용 가져와서 채우기.. <div>note_form 채운다.
 function fill_note(src_dir)
 {
+
 	//FIXME: 임시로 src_dir 설정해둠
 	// src+dir = "./inclue/1995/"
 	// .load( url [, data ] [, complete ] ) 
@@ -207,22 +261,16 @@ function fill_note(src_dir)
 
 	
 	// $("#notef").load("./include/1995/1996-02-23-test.html", { "title": "이름바꿨다" } );
+	
 
-	var reqq = $.ajax(
-		{
-			url: "/include/1995/1996-02-23-test.html",
-			type: "GET",
-			dataType: "html"});
-	reqq.done(function(data,status,jq){
-		// var students = JSON.parse(data);
-		var re = "ㄱㄷㄱㅈㄱㄷ";
-		$("#notef").append(data.result_msg);
-		$("#notef").append(status.result_msg);
-		$("#notef").append(jq.result_msg);
-		// $("#notef").append(res);
-		$("#notef").append(re);
-		$("#notef").append("<br/>ㅅㄷㄷ");
-		});
+	// var req = $.ajax(src_dir);
+	$("#notef").load(src_dir);
+	
+	
+
+
+	// var req = $.ajax("/include/1995/1996-02-23-test.html");
+	// $("#notef").load("./include/1995/1996-02-23-test.html");
 
 }
 
