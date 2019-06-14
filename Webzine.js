@@ -26,74 +26,59 @@ $(document).ready(function(){
 
 	
 	/* 연표 클릭 */
+
 	$("#img1").click(function(){
-		for(var i=0;i<8;i++){
-			$("#new"+i).css("display","none");
-		}
-		$("#new1").css("display","block");
+		$("#new").css("display","none");
+		$("#new").css("display","block");
 		create_Table(1945);
 	})
 	$("#img2").click(function(){
-		for(var i=0;i<8;i++){
-			$("#new"+i).css("display","none");
-		}
-		$("#new2").css("display","block");
+		$("#new").css("display","none");
+		$("#new").css("display","block");
 		create_Table(1955);
 
 	})
 
 	$("#img3").click(function(){
-
-		for(var i=0;i<8;i++){
-			$("#new"+i).css("display","none");
-		}
-		$("#new3").css("display","block");
+		$("#new").css("display","none");
+		$("#new").css("display","block");
 		create_Table(1965);
 
 	})
 	$("#img4").click(function(){
-		for(var i=0;i<8;i++){
-			$("#new"+i).css("display","none");
-		}
-		$("#new4").css("display","block");
+		$("#new").css("display","none");
+		$("#new").css("display","block");
 		create_Table(1975);
 
 	})
 	$("#img5").click(function(){
-		for(var i=0;i<8;i++){
-			$("#new"+i).css("display","none");
-		}
-		$("#new5").css("display","block");
+		$("#new").css("display","none");
+		$("#new").css("display","block");
 		create_Table(1985);
 
 	})
 	$("#img6").click(function(){
-		for(var i=0;i<8;i++){
-			$("#new"+i).css("display","none");
-		}
-		$("#new6").css("display","block");
+		$("#new").css("display","none");
+		$("#new").css("display","block");
 		create_Table(1995);
 
 	})
 	$("#img7").click(function(){
-		for(var i=0;i<8;i++){
-			$("#new"+i).css("display","none");
-		}
-		$("#new7").css("display","block");
+		$("#new").css("display","none");
+		$("#new").css("display","block");
 		create_Table(2005);
 		
 
 	})
 	$("#img8").click(function(){
-		for(var i=0;i<8;i++){
-			$("#new"+i).css("display","none");
-		}
-		$("#new8").css("display","block");
+		$("#new").css("display","none");
+		$("#new").css("display","block");
 		create_Table(2015);
 
 	})
 
-	$(".cont").on("click",show_note_form);
+	// $(".cont").on("click",show_note_form); // 요놈은 미리 생성되어 있어야만 가능한데 
+	$(document).on("click",".cont",show_note_form); // 요놈은 동적생성해도 가능함 ^^~
 	$("#close").on("click",push_note);
 	/**
 	 * [테스트] server쪽 테스트중
@@ -108,23 +93,22 @@ $(document).ready(function(){
 function create_Table(Number){
 
 
-	// if(number == 1945)
-//        var req=$.ajax("1995-06-29-sampoong.json");
-//    	else if(number == 1955)
-//        var req=$.ajax("1995-06-29-sampoong.json");
-//    	else if(number == 1965)
-//        var req=$.ajax("1995-06-29-sampoong.json");
-//    	else if(number == 1975)
-//        var req=$.ajax("1995-06-29-sampoong.json");
-//    	else if(number == 1985)
-//        var req=$.ajax("1995-06-29-sampoong.json");
-//    	else if(number == 1995)
-//        var req=$.ajax("1995-06-29-sampoong.json");
-//    	else if(number == 2005)
-//        var req=$.ajax("1995-06-29-sampoong.json");
-//    	else
-	 // var req=$.ajax("test_1995s_list.json");
-	 var req=$.ajax("asdfasdf.json");
+	if(Number == 1945)
+	 var req=$.ajax("test_1985s_list.json");
+   	else if(Number == 1955)
+	 var req=$.ajax("test_1995s_list.json");
+   	else if(Number == 1965)
+	 var req=$.ajax("test_1985s_list.json");
+   	else if(Number == 1975)
+	 var req=$.ajax("test_1995s_list.json");
+   	else if(Number == 1985)
+	 var req=$.ajax("test_1985s_list.json");
+   	else if(Number == 1995)
+	 var req=$.ajax("test_1995s_list.json");
+   	else if(Number == 2005)
+	 var req=$.ajax("test_1985s_list.json");
+   	else
+	 var req=$.ajax("test_1995s_list.json");
 
 
 
@@ -158,7 +142,7 @@ function create_Table(Number){
 		   var table1=$("<tr></tr>").append($("<td></td>").addClass('year').text(yearNumber)).append($("<td></td>").text(""));
 		   tb.append(table1);
 
-		   var table2 = $("<tr/>").append($("<td/>").addClass('year').text("")).append($("<td></td>").addClass('cont').append($("<h1></h1>").text("몇월몇일")).append($("<br>")).append($("<img>",{
+		   var table2 = $("<tr/>").append($("<td/>").addClass('year').text("")).append($("<td></td>").addClass('cont').append($("<h1></h1>").text(dateArr[1]+"월 "+dateArr[2]+"일")).append($("<br>")).append($("<img>",{
 			   src:imgSrc,
 			   align:"left",
 			   alt:"180 X 180"
@@ -171,7 +155,7 @@ function create_Table(Number){
 		   /*반복 끝*/
 
 		   // for(var i = 0 ; i<8; i++)
-		$("#new1").html(tb);
+		$("#new").html(tb);
 
 	  }
  )
