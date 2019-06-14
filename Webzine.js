@@ -123,7 +123,8 @@ function create_Table(Number){
 //    	else if(number == 2005)
 //        var req=$.ajax("1995-06-29-sampoong.json");
 //    	else
-	 var req=$.ajax("test_1995s_list.json");
+	 // var req=$.ajax("test_1995s_list.json");
+	 var req=$.ajax("asdfasdf.json");
 
 
 
