@@ -70,3 +70,7 @@ https://stackoverflow.com/questions/21603770/saving-data-to-the-database-via-jqu
 
 https://stackoverflow.com/questions/45105992/node-js-send-data-to-backend-with-ajax
 
+
+## html load
+
+https://offbyone.tistory.com/235

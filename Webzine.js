@@ -80,6 +80,11 @@ $(document).ready(function(){
 
 
 
+
+	/**
+	 * [테스트] server쪽 테스트중
+	 */
+	fill_note("ser");
 	set_yearn();
 });//end of ready
 
@@ -111,12 +116,14 @@ function change_position(obj){
 	obj.css({top:t,left:l});
 }
 
-//TODO: note popup의 내용 가져와서 채우기.. note_form 채운다.
+//TODO: note popup의 내용 가져와서 채우기.. <div>note_form 채운다.
 function fill_note(src_dir)
 {
 	//FIXME: 임시로 src_dir 설정해둠
 	// src+dir = "./inclue/1995/"
+	// .load( url [, data ] [, complete ] ) 
 
+	$("#notef").load("./include/1995/1996-02-23-test.html");
 
 
 }
@@ -125,29 +132,11 @@ function fill_note(src_dir)
 //TODO: 자료들 돌아서 년도 채우기
 function set_yearn()
 {
-	//TODO: 파일 목록 불러오기 https://opentutorials.org/course/3332/21122
-	//file reader
-	// var testFolder = './include';
-	// var fs = require('fs');
-	// fs.readdir(testFolder, function(error, filelist){
-
-	//   console.log(filelist);
-
-//FIXME: list가 화면에 나오도록
-var list = $("<ul/>");
-var list_cont = $("<li/>").text("alkjsf");
-list.append("adsfdfdfdf");
-list.append(list_cont);
-$("#new1").css("color", "white");
-$("#new1").html(list);
-
-
 /***************************************************************************
- * **임시:: new3에 데이터 읽어올 수 있는지 테스트****************************
+ * **[임시] new3에 데이터 읽어올 수 있는지 테스트****************************
  *
  *  
  * */
-//FIXME: 임시로 new3에다 저장
 var list_src = "./test_1995s_list.json";
 var year_articles = $("<div/>");
 var req = $.ajax(list_src);
@@ -175,6 +164,9 @@ req.done((data)=>
 });
 $("#new3").css("color", "white");
 $("#new3").html(year_articles);
+}
+
+
 
 	//TODO: 클릭한 곳마다 내용 있는 디렉토리 다르게 하기. 배열로 저장하면 되겠다.
 	//TODO: src_dir에 있는 모든 파일 돌면서 년도 채우기
@@ -183,5 +175,4 @@ $("#new3").html(year_articles);
 
 //TODO: 검색기능
 
-}
 
