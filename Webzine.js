@@ -327,51 +327,93 @@ $("#new3").html(year_articles);
 
 
 	//TODO: 클릭한 곳마다 내용 있는 디렉토리 다르게 하기. 배열로 저장하면 되겠다.
-	//TODO: src_dir에 있는 모든 파일 돌면서 년도 채우기
 
 // TODO: 오늘의 역사
 function set_today_history()
 {
 	//FIXME: 임시로 날짜 정해줌.
-	var today_month = 06;
-	var today_day = 29;
+	// var today_month = 06;
+	// var today_day = 29;
 
-	var history = [];
-	//리스트 돌면서 같은 날짜 있는지 찾기 ... 
-	//TODO: 더 좋은 알고리즘으로 바꾸기
-	var req = $.ajax("lists.json");
-	req.done(function(data, status){
-		for(var i = 0; i<data.length; i++)
-		{
-			var req2 = $.ajax(data[i].link);
-			req2.done((article)=>
-			{
-				for(var j = 0; j<article.length; j++)
-				{
+	// //history: 오늘의 날짜에 띄울 사건들 저장하는 배열
+	// var history = [];
 
-					var date = article[j].date; // 역사 날짜
-					var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
-					if(dateArr[1] == today_month && dateArr[2]==today_day)
-					{
-						var obj =
-						{title: article[j].title, summary: article[j].summary, link: article[j].link};
+	// //리스트 돌면서 같은 날짜 있는지 찾기 ... 
+	// //TODO: 더 좋은 알고리즘으로 바꾸기
 
-						// obj.push({title: article[j].title, summary: article[j].summary, link: article[j].link});
-						history.push(obj);
-						// history.push({title: article[j].title, summary: article[j].summary, link: article[j].link});
-						// FIXME:for문 밖으로 나가면 history가 undefined
-						$("#todaytitle").text(history[0].title);
-						$("#todaycontent").text(history[0].summary);
+	// var req = $.ajax("lists.json");
+	// req.done(function(data, status){
+	// 	for(var i = 0; i<data.length; i++)
+	// 	{
+	// 		var req2 = $.ajax(data[i].link);
+	// 		req2.done((article)=>
+	// 		{
+	// 			for(var j = 0; j<article.length; j++)
+	// 			{
+
+	// 				var date = article[j].date; // 역사 날짜
+	// 				var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
+	// 				if(dateArr[1] == today_month && dateArr[2]==today_day)
+	// 				{
+	// 					var obj =
+	// 					{title: article[j].title, summary: article[j].summary, link: article[j].link};
+
+	// 					// obj.push({title: article[j].title, summary: article[j].summary, link: article[j].link});
+	// 					history.push(obj);
+	// 					// history.push({title: article[j].title, summary: article[j].summary, link: article[j].link});
+	// 					// FIXME:for문 밖으로 나가면 history가 undefined
+	// 					$("#todaytitle").text(history[0].title);
+	// 					$("#todaycontent").text(history[0].summary);
 
 
-						// document.write(article[j].title);
-						// document.write(obj.title);
-					}
-				}
-			});
-		}
+	// 					// document.write(article[j].title);
+	// 					// document.write(obj.title);
+	// 				}
+	// 			}
+	// 		});
+	// 	}
 		
+	// });
+
+	//FIXME: 오늘날짜 받아오기
+	var today = [2019,06,16];
+	//history: 오늘의 날짜에 띄울 사건들 저장하는 배열. 최대 5개까지만 저장.
+	var history = [];
+	var temp = [];
+	var max_distance = 987654321;
+	
+	//년도별 리스트를 돌면서 같은 or 가까운 날짜가 있는지 확인
+	//total_lists: 년도별 리스트를 모아둔 json파일
+	var total_lists = $.ajax("lists.json");
+	total_lists.done((lists)=>
+	{
+		// document.write("lists length: "+ lists.length +"<br/>");
+		//년도별 리스트를 돌면서 검사
+		$.each(lists, (index, list)=>
+		{
+			// document.write(list.link + "-");
+			//list_year: 연도별 사건 리스트
+			var list_year = $.ajax(list.link);
+			list_year.done((articles)=>
+			{
+				// document.write(articles.length+" ");
+				// //사건별로 날짜 검사해서 history에 추가
+				$.each(articles,(art_index, article)=>
+				{
+					var dateArr = article.date.split("-");
+					
+				// 	//날짜 계산
+				// 	//TODO: distance_date만들기
+					var distance = distance_date(today, dateArr);
+					if(distance > max_distance) return true;
+					max_distance = distance;
+					add_today_article(temp, article);
+					document.write(max_distance);
+				});
+			});
+		});
 	});
+
 	// document.write(history[0].title);
 	
 	// $("#todaytitle").text(history[0].title);
@@ -406,6 +448,37 @@ function set_today_history()
 // 		// $("#todaybutton").on("click", show_note_form);
 
 // });
+}
+
+//날짜 차이 계산
+function distance_date(today, dateArr)
+{
+	//index[0]: year, [1]: month, [2]: date
+	var dist_mon = dateArr[1] - today[1];
+	var dist_day = dateArr[2] - (today[2] - dist_mon * 30);
+	return Math.abs(dist_day);
+}
+
+
+//오늘의 역사에 띄울 사건들 저장
+function add_today_article(history, article)
+{
+	//기존에 저장한 사건들과 새로 들어온 사건의 날짜 비교
+	var insert = 0;	//삽입 위치
+	$.each(history, (index, data)=>
+	{
+		if(data.dist < article.dist) return true;
+		insert = index;
+		return false;
+	});
+
+	
+
+
+
+
+
+
 }
 
 
