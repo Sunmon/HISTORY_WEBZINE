@@ -140,20 +140,30 @@ function create_Table(Number){
 		
 		var date = data[i].date; // 역사 날짜
 		var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
-		 // 3개로 나눈것 ex 1999-04-14 면 dateArr[0] == 1999, dateArr[1] == 04, dateArr[2] == 14 참고로 이건 내생일 ㅎㅎ;
+		// 3개로 나눈것 ex 1999-04-14 면 dateArr[0] == 1999, dateArr[1] == 04, dateArr[2] == 14 참고로 이건 내생일 ㅎㅎ;
 		yearNumber = dateArr[0]; // 앞에 년도 넣어주기
-
+		var _link = data[i].link;	//기사와 연결된 link
 			/*연도 1945 입력 이 부분은 이제 data 로 받아와야함*/
 		   var table1=$("<tr></tr>").append($("<td></td>").addClass('year').text(yearNumber)).append($("<td></td>").text(""));
 		   tb.append(table1);
 
-		   var table2 = $("<tr/>").append($("<td/>").addClass('year').text(""))
+
+		   var table2 = $("<tr/>")
+		   .append($("<td/>").addClass('year').text(""))
 		   .append($("<td></td>").addClass('cont')
-		   .append($("<h1></h1>").text(dateArr[1]+"월 "+dateArr[2]+"일")).append($("<br>")).append($("<img>",{
-			   src:imgSrc,
-			   align:"left",
-			   alt:"180 X 180"
-		   })).append($("<span/>").addClass('article-head').text(article_Title)).append($("<div/>").text(article_Content).addClass('article=main'))); 
+		   			.append($("<h1></h1>").text(dateArr[1]+"월 "+dateArr[2]+"일"))
+		   			.append($("<br>"))
+		   			.append($("<img>",{
+						   src:imgSrc,
+						   align:"left",
+						   alt:"180 X 180"
+		   			}))
+		   			.append($("<span/>").addClass('article-head').text(article_Title))
+					.append($("<div/>").text(article_Content).addClass('article=main'))
+		   			.append($("<p/>").text(_link).addClass("link"))); //link 추가
+
+
+		   
 
 
 
@@ -176,13 +186,10 @@ function create_Table(Number){
 
 
 		   //FIXME: 링크를 어떻게 가져와야 할 지 몰라서 임시로 넣어둠
-		   var _link = data[i].link;
-		   table2.append($("<tr/>").append($("<td/>").text(_link)));
+		//    var _link = data[i].link;
+		//    table2.append($("<tr/>").append($("<td/>").text(_link)));
 		//    table3.addClass("link");
 		   tb.append(table2);
-
-
-
 		}
 		   /*반복 끝*/
 
@@ -213,12 +220,16 @@ function show_note_form(){
 	// var tb = $(this).parent("tr");
 
 	// var _link =tb.next($("tr:eq(3)>td:eq(0)")).html();
-	var _link =$(this).next($("td:eq(0)")).text();
+	// var _link =$(this).next($("td:eq(0)")).text();
+	var _link = $(this).children(".link").text();
+	// var _link = $(this).children().text();
+
+	// document.write(_link);
 	// var _temp = $(this).children($(".link")).text();
 	// document.write(_link);
 	// document.write(_temp);
 	// document.write(_link);
-	$("#notef").append(_link);
+	// $("#notef").append(_link);
 	fill_note(_link);
 	
 	// document.write(_link);
