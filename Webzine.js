@@ -93,6 +93,9 @@ $(document).ready(function(){
 });//end of ready
 
 
+//history: 오늘의 날짜에 띄울 사건들 저장하는 배열. 최대 5개까지만 저장.
+var history = [];
+
 
 function create_Table(Number){
 
@@ -377,8 +380,7 @@ function set_today_history()
 
 	//FIXME: 오늘날짜 받아오기
 	var today = [2019,06,16];
-	//history: 오늘의 날짜에 띄울 사건들 저장하는 배열. 최대 5개까지만 저장.
-	var history = [];
+
 	var temp = [];
 	var max_distance = 987654321;
 	
@@ -401,18 +403,29 @@ function set_today_history()
 				$.each(articles,(art_index, article)=>
 				{
 					var dateArr = article.date.split("-");
-					
-				// 	//날짜 계산
-				// 	//TODO: distance_date만들기
-					var distance = distance_date(today, dateArr);
+					var distance = calculate_dist(today, dateArr);
+					// document.write("dist:" + distance + " ");
 					if(distance > max_distance) return true;
 					max_distance = distance;
-					add_today_article(temp, article);
-					document.write(max_distance);
+					temp = add_today_article(temp,article, distance).slice();
+					document.write("temp"+ art_index + "번째: "+  temp[0].date);
+					document.write("   tttemmmpppp.length "+ art_index + "번째: " + temp.length + "<br>");
+					// temp.splice(0, temp.length, add_today_article(temp, article, distance));
+					// document.write("max_dist: " + max_distance + "<br>");
 				});
+
+				document.write("temppp2: "+ temp[0].date);
+
 			});
 		});
 	});
+
+	history = temp.slice();
+
+
+
+	//
+	//TODO: history를 오늘의 배열에 넣기
 
 	// document.write(history[0].title);
 	
@@ -451,7 +464,7 @@ function set_today_history()
 }
 
 //날짜 차이 계산
-function distance_date(today, dateArr)
+function calculate_dist(today, dateArr)
 {
 	//index[0]: year, [1]: month, [2]: date
 	var dist_mon = dateArr[1] - today[1];
@@ -461,23 +474,75 @@ function distance_date(today, dateArr)
 
 
 //오늘의 역사에 띄울 사건들 저장
-function add_today_article(history, article)
+function add_today_article(his_array, article, distance)
 {
-	//기존에 저장한 사건들과 새로 들어온 사건의 날짜 비교
-	var insert = 0;	//삽입 위치
-	$.each(history, (index, data)=>
+	//history에 넣을 새 object 만들기
+	var obj = 
 	{
-		if(data.dist < article.dist) return true;
+		title: article.title,
+		date: article.date,
+		summary: article.summary,
+		image: article.image,
+		link : article.link,
+		dist: distance
+	};
+
+	// $.each(obj, (index,data)=>
+	// {
+	// 	document.write(data);
+	// })
+
+
+	/*******
+	 * *******삭제할것*******************************
+	 */
+	document.write("현재  article dist: "+obj.dist + "함수로 들어온 배열.len"+ his_array.length + "<br>");
+	$.each(his_array, (index, data)=>
+	{
+		document.write(data.title + "," + data.date + "," + data.dist + "<br>");
+	})
+
+	/**
+	 * **************************************************************
+	 */
+
+	//삽입 위치 구하기
+	var insert = 0;
+	$.each(his_array, (index, data)=>
+	{
+		if(data.dist < obj.dist) return true;
 		insert = index;
 		return false;
 	});
 
+
+	document.write("insert 위치: "+ insert + "<br>");
+
+	//FIXME:  여기 삽입 알고리즘 고치기. 제대로 안 됨.
+	//history의 insert번째 index에 새로 삽입 &길이 5로 유지
+	var len = his_array.length;
+	if(len == 0)
+	{
+		his_array.push(obj);
+		return;
+	}
+	var len = his_array.length < 5? his_array.length: 5;
+
+	len = len > 2? len: 2;
+	for(var i = len - 2; i >= insert; i--)
+	{
+		his_array[i+1] = his_array[i];
+	}
+
+	len == 2? his_array.push(obj) : his_array.splice(i,1,obj);
 	
+	// arr.splice(2, 0, "Lene");
+	// his_array[i] = obj;
+	// document.write("<br> index: "+insert);
+	// document.write(" ---- his_array.len"+ his_array.length + "<br>");
 
 
-
-
-
+	return his_array;
 
 }
 

@@ -89,3 +89,11 @@ https://qkrrudtjr954.github.io/ajax/2018/02/08/ajax-load-func.html
 ## post
 
 https://findfun.tistory.com/400
+
+## call by reference
+
+js도 java랑 비슷하다..
+
+포인터 쓰고 싶다 엉엉
+
+https://emflant.tistory.com/64
