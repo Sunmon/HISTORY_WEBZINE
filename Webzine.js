@@ -23,64 +23,11 @@ $(document).ready(function(){
 		$("#_2015").attr("src","source/timebar3.jpg");
 	})
 
-
-	
 	/* 연표 클릭 */
 	$(".timebar_click").click(function(){
 		$("#new").css("display","block");
 		create_Table($(this).attr("id"));
 	});
-
-
-	// $("#img1").click(function(){
-	// 	$("#new").css("display","none");
-	// 	$("#new").css("display","block");
-	// 	create_Table(1945);
-	// })
-	// $("#img2").click(function(){
-	// 	$("#new").css("display","none");
-	// 	$("#new").css("display","block");
-	// 	create_Table(1955);
-
-	// })
-
-	// $("#img3").click(function(){
-	// 	$("#new").css("display","none");
-	// 	$("#new").css("display","block");
-	// 	create_Table(1965);
-
-	// })
-	// $("#img4").click(function(){
-	// 	$("#new").css("display","none");
-	// 	$("#new").css("display","block");
-	// 	create_Table(1975);
-
-	// })
-	// $("#_1985").click(function(){
-	// 	$("#new").css("display","none");
-	// 	$("#new").css("display","block");
-	// 	create_Table(1985);
-
-	// })
-	// $("#_1995").click(function(){
-	// 	$("#new").css("display","none");
-	// 	$("#new").css("display","block");
-	// 	create_Table(1995);
-
-	// })
-	// $("#_2005").click(function(){
-	// 	$("#new").css("display","none");
-	// 	$("#new").css("display","block");
-	// 	create_Table(2005);
-		
-
-	// })
-	// $("#_2015").click(function(){
-	// 	$("#new").css("display","none");
-	// 	$("#new").css("display","block");
-	// 	create_Table(2015);
-
-	// })
 
 	//GOOD!
 	// $(".cont").on("click",show_note_form); // 요놈은 미리 생성되어 있어야만 가능한데 
@@ -226,7 +173,6 @@ function init_today_history()
 	{
 		total_lists = data;
 		get_content_of_years(total_lists);
-		
 		set_history_to_home(today_historys[today_index]);
 	});
 }
@@ -245,9 +191,6 @@ function change_today_history()
 
 
 	
-	if(today_index >= 4){
-		document.write(today_index);
-	}
 
 }
 
@@ -278,7 +221,7 @@ function add_article_to_history(hist_array, article, dist)
 {
 	//article을 object로 변환
 	var obj = Object.assign({},article, {dist: dist});
-	
+
 	//hist_array에 삽입할 위치 구하기
 	var index = 0;
 	$.each(hist_array, (i, h)=>{
@@ -288,9 +231,9 @@ function add_article_to_history(hist_array, article, dist)
 	});
 
 	//hist_array에 추가
-	for(var i = hist_array.length -1; i>= index; i--)
+	for(var i = hist_array.length-1; i>= index; i--)
 	{
-		if(i == 4) continue;
+		if(i + 1 == 5) continue;
 		hist_array[i+1] = hist_array[i];
 	}
 	hist_array[index] = Object.assign({},obj);
@@ -326,9 +269,8 @@ function get_content_of_articles(articles)
 	{
 		var distance = calculate_dist(today, article.date.split("-"));
 		if(distance > max_dist) return true;
-		max_dist = distance;
 		today_historys = add_article_to_history(today_historys, article, distance).slice();
-
+		max_dist = today_historys[today_historys.length-1].dist;
 	});
 	return today_historys;
 }
