@@ -303,11 +303,12 @@ table{
     border: 3px solid orange;
     width: 190px; height: 30px;
     color: white;
-    text-align: center;
-    line-height: 30px;
 }
-.today{float: left;}
+.today{float: left; color: white;}
 
+#todaydate{
+    text-align:  center;
+}
 
 /* 기사와 연결되는 링크 클래스. 숨김 처리 */
 .link{

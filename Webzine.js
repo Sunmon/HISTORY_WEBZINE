@@ -31,25 +31,26 @@ $(document).ready(function(){
 		create_Table($(this).attr("id"));
 	});
 
-	// $("#_1945").click(function(){
+
+	// $("#img1").click(function(){
 	// 	$("#new").css("display","none");
 	// 	$("#new").css("display","block");
 	// 	create_Table(1945);
 	// })
-	// $("#_1955").click(function(){
+	// $("#img2").click(function(){
 	// 	$("#new").css("display","none");
 	// 	$("#new").css("display","block");
 	// 	create_Table(1955);
 
 	// })
 
-	// $("#_1965").click(function(){
+	// $("#img3").click(function(){
 	// 	$("#new").css("display","none");
 	// 	$("#new").css("display","block");
 	// 	create_Table(1965);
 
 	// })
-	// $("#_1975").click(function(){
+	// $("#img4").click(function(){
 	// 	$("#new").css("display","none");
 	// 	$("#new").css("display","block");
 	// 	create_Table(1975);
@@ -235,11 +236,19 @@ function change_today_history()
 {
 	//오른쪽 버튼이면 다음 역사, 왼쪽 버튼이면 이전 역사 보여주기
 	var len = today_historys.length;
+
 	var id = $(this).attr("id");
 	(id == "right")? today_index++ : today_index --;
 	today_index >= 0? today_index %= len : today_index = len-1;
 
 	set_history_to_home(today_historys[today_index]);
+
+
+	
+	if(today_index >= 4){
+		document.write(today_index);
+	}
+
 }
 
 
@@ -248,6 +257,7 @@ function set_history_to_home(hist)
 {
 	$("#todaytitle").text(hist.title);
 	$("#todaycontent").text(hist.content);
+	$("#todaydate").text(hist.date);
 	$("#todaybutton").children(".link").text(hist.link);
 	$("#todayphoto").attr("src", hist.image);
 }
