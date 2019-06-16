@@ -135,3 +135,46 @@ https://stackoverflow.com/questions/5316697/jquery-return-data-after-ajax-call-s
 
 해결법: https://stackoverflow.com/questions/17981631/jquery-ajax-inside-a-loop
 
+
+## 버튼을 누를 때마다 내용이 계속 추가되던 문제
+
+
+```js
+//오늘의 역사 다음 역사로 바꾸기
+function change_today_history()
+{
+	//오른쪽 버튼이면 다음 역사, 왼쪽 버튼이면 이전 역사 보여주기
+	var len = hhh.length;
+	var id = $(this).attr("id");
+	(id == "right")? today_index++ : today_index --;
+	today_index >= 0? today_index %= len : today_index = len-1;
+
+	set_history_to_home(hhh[today_index]);
+}
+
+//오늘의 역사를 화면에 띄우기
+function set_history_to_home(hist)
+{
+	$("#todaytitle").text(hist.title);
+	$("#todaycontent").text(hist.summary);
+	//버튼에 연결된 링크 바꾸기
+	$("#todaybutton").children(".link").text(hist.link);
+	$("#todaybutton").click(show_note_form);
+}
+
+```
+
+오늘의 역사를 화면에 띄우는 메소드다.
+
+change_today_history로 같은 날짜에 있는 다른 역사로 바꾸고, set_history_to_home으로 해당 역사를 메인에 띄워준다.
+
+그런데 자꾸 todaybutton의 link가 새로 생성되는 게 아니라, 기존 것에 이어서 추가로 생성되는 문제가 있었다.
+
+text대신 html로 바꿔봐도 같은 문제였다..
+
+알고보니, click을 저기에 달아줘서 그렇다. 매번 클릭할때마다 show_note_form이라는 이벤트 핸들러가 매번 추가되어서 그랬다.
+
+$.click을 웹페이지 로딩시 한번만 실행하는 것으로 해결했다.
+
+
+
