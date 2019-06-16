@@ -1,9 +1,33 @@
 [{
-        "name":1945,
-        "link":"test_1985s_list.json"
+        "name":"_1945",
+        "link":"/include/1945s_list.json"
     },
     {
-        "name":1955,
-        "link":"test_1995s_list.json"
+        "name":"_1955",
+        "link":"/include/1955s_list.json"
+    },
+    {
+        "name":"_1965",
+        "link":"/include/1965s_list.json"
+    },
+    {
+        "name":"_1975",
+        "link":"/include/1975s_list.json"
+    },
+    {
+        "name":"_1985",
+        "link":"/include/1985s_list.json"
+    },
+    {
+        "name":"_1995",
+        "link":"/include/1995s_list.json"
+    },
+    {
+        "name":"_2005",
+        "link":"/include/2005s_list.json"
+    },
+    {
+        "name":"_2015",
+        "link":"/include/2015s_list.json"
     }
 ]

@@ -3,10 +3,10 @@ var number=0;
 $(document).ready(function(){
 
 
-	$("#img1").hover(function(){
-	$("#img1").attr("src","source/timebarhover1.jpg");
+	$("#_1945").hover(function(){
+	$("#_1945").attr("src","source/timebarhover1.jpg");
 	},function(){
-		$("#img1").attr("src","source/timebar1.jpg");
+		$("#_1945").attr("src","source/timebar1.jpg");
 	})
 
     
@@ -17,65 +17,69 @@ $(document).ready(function(){
 	})
 
 
-	$("#img8").hover(function(){
-		$("#img8").attr("src","source/timebarhover3.jpg");
+	$("#_2015").hover(function(){
+		$("#_2015").attr("src","source/timebarhover3.jpg");
 	},function(){
-		$("#img8").attr("src","source/timebar3.jpg");
+		$("#_2015").attr("src","source/timebar3.jpg");
 	})
 
 
 	
 	/* 연표 클릭 */
-
-	$("#img1").click(function(){
-		$("#new").css("display","none");
+	$(".timebar_click").click(function(){
 		$("#new").css("display","block");
-		create_Table(1945);
-	})
-	$("#img2").click(function(){
-		$("#new").css("display","none");
-		$("#new").css("display","block");
-		create_Table(1955);
+		create_Table($(this).attr("id"));
+	});
 
-	})
+	// $("#_1945").click(function(){
+	// 	$("#new").css("display","none");
+	// 	$("#new").css("display","block");
+	// 	create_Table(1945);
+	// })
+	// $("#_1955").click(function(){
+	// 	$("#new").css("display","none");
+	// 	$("#new").css("display","block");
+	// 	create_Table(1955);
 
-	$("#img3").click(function(){
-		$("#new").css("display","none");
-		$("#new").css("display","block");
-		create_Table(1965);
+	// })
 
-	})
-	$("#img4").click(function(){
-		$("#new").css("display","none");
-		$("#new").css("display","block");
-		create_Table(1975);
+	// $("#_1965").click(function(){
+	// 	$("#new").css("display","none");
+	// 	$("#new").css("display","block");
+	// 	create_Table(1965);
 
-	})
-	$("#img5").click(function(){
-		$("#new").css("display","none");
-		$("#new").css("display","block");
-		create_Table(1985);
+	// })
+	// $("#_1975").click(function(){
+	// 	$("#new").css("display","none");
+	// 	$("#new").css("display","block");
+	// 	create_Table(1975);
 
-	})
-	$("#img6").click(function(){
-		$("#new").css("display","none");
-		$("#new").css("display","block");
-		create_Table(1995);
+	// })
+	// $("#_1985").click(function(){
+	// 	$("#new").css("display","none");
+	// 	$("#new").css("display","block");
+	// 	create_Table(1985);
 
-	})
-	$("#img7").click(function(){
-		$("#new").css("display","none");
-		$("#new").css("display","block");
-		create_Table(2005);
+	// })
+	// $("#_1995").click(function(){
+	// 	$("#new").css("display","none");
+	// 	$("#new").css("display","block");
+	// 	create_Table(1995);
+
+	// })
+	// $("#_2005").click(function(){
+	// 	$("#new").css("display","none");
+	// 	$("#new").css("display","block");
+	// 	create_Table(2005);
 		
 
-	})
-	$("#img8").click(function(){
-		$("#new").css("display","none");
-		$("#new").css("display","block");
-		create_Table(2015);
+	// })
+	// $("#_2015").click(function(){
+	// 	$("#new").css("display","none");
+	// 	$("#new").css("display","block");
+	// 	create_Table(2015);
 
-	})
+	// })
 
 	//GOOD!
 	// $(".cont").on("click",show_note_form); // 요놈은 미리 생성되어 있어야만 가능한데 
@@ -85,9 +89,7 @@ $(document).ready(function(){
 	/**
 	 *****[테스트] server쪽 테스트중**
 	 */
-	// fill_note("ser");
 
-	create_Table(1);
 	init_today_history();
 	$(".btn_history_change").on("click", change_today_history);
 	$("#todaybutton").click(show_note_form);
@@ -96,84 +98,66 @@ $(document).ready(function(){
 
 
 
+//선택한 년도에 맞게 기사 목록 테이블 띄우기
+function create_Table(id){
 
-function create_Table(Number){
-
-
-	if(Number == 1945)
-	 var req=$.ajax("test_1985s_list.json");
-   	else if(Number == 1955)
-	 var req=$.ajax("test_1995s_list.json");
-   	else if(Number == 1965)
-	 var req=$.ajax("test_1985s_list.json");
-   	else if(Number == 1975)
-	 var req=$.ajax("test_1995s_list.json");
-   	else if(Number == 1985)
-	 var req=$.ajax("test_1985s_list.json");
-   	else if(Number == 1995)
-	 var req=$.ajax("test_1995s_list.json");
-   	else if(Number == 2005)
-	 var req=$.ajax("test_1985s_list.json");
-   	else
-	 var req=$.ajax("test_1995s_list.json");
-
-
-
-
-
-	 req.done(function(data,status){
-		var tb = $("<table></table>"); //table태그 만들기
-
-
-		/*반복*/
-
-		for(var i=0; i <data.length; i++){
-
-
-		/* 기본 값 지정*/
-		var imgSrc = "http://placehold.it/180X180"; // 이미지 주소
-		var article_Title = "article타이틀"; // 기사 제목
-		var article_Content = "main"; // 기사 내용
-		var yearNumber = "1945"; // 앞에 연도
-
-		imgSrc = data[i].image;
-		article_Title = data[i].title; // 기사 제목 json 파일에서 불러오기
-		article_Content = data[i].content; // 기사 내용 json 파일에서 불러오기
-
-		
-		var date = data[i].date; // 역사 날짜
-		var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
-		// 3개로 나눈것 ex 1999-04-14 면 dateArr[0] == 1999, dateArr[1] == 04, dateArr[2] == 14 참고로 이건 내생일 ㅎㅎ;
-		yearNumber = dateArr[0]; // 앞에 년도 넣어주기
-		var _link = data[i].link;	//기사와 연결된 link
-			/*연도 1945 입력 이 부분은 이제 data 로 받아와야함*/
-		   var table1=$("<tr></tr>").append($("<td></td>").addClass('year').text(yearNumber)).append($("<td></td>").text(""));
-		   tb.append(table1);
-
-
-		   var table2 = $("<tr/>")
-		   .append($("<td/>").addClass('year').text(""))
-		   .append($("<td></td>").addClass('cont')
-		   			.append($("<h1></h1>").text(dateArr[1]+"월 "+dateArr[2]+"일"))
-		   			.append($("<br>"))
-		   			.append($("<img>",{
-						   src:imgSrc,
-						   align:"left",
-						   alt:"180 X 180"
-		   			}))
-		   			.append($("<span/>").addClass('article-head').text(article_Title))
-					.append($("<div/>").text(article_Content).addClass('article=main'))
-		   			.append($("<p/>").text(_link).addClass("link"))); //link 추가
-
-		   tb.append(table2);
-		}
-		   /*반복 끝*/
-
-		   // for(var i = 0 ; i<8; i++)
-		$("#new").html(tb);
-
-	  }
- )
+	//선택한 년도에 맞게 
+	$.ajax("./lists.json")
+	.done((dat)=>
+	{
+		//선택한 년도에 맞는 리스트 가져오기
+		var _link = dat.find(list => list.name == id).link;
+		var req = $.ajax(_link);
+		req.done(function(data,status){
+			var tb = $("<table></table>"); //table태그 만들기
+	
+			/*반복*/
+	
+			for(var i=0; i <data.length; i++){
+	
+	
+			/* 기본 값 지정*/
+			var imgSrc = "http://placehold.it/180X180"; // 이미지 주소
+			var article_Title = "article타이틀"; // 기사 제목
+			var article_Content = "main"; // 기사 내용
+			var yearNumber = "1945"; // 앞에 연도
+	
+			imgSrc = data[i].image;
+			article_Title = data[i].title; // 기사 제목 json 파일에서 불러오기
+			article_Content = data[i].content; // 기사 내용 json 파일에서 불러오기
+	
+			
+			var date = data[i].date; // 역사 날짜
+			var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
+			// 3개로 나눈것 ex 1999-04-14 면 dateArr[0] == 1999, dateArr[1] == 04, dateArr[2] == 14 참고로 이건 내생일 ㅎㅎ;
+			yearNumber = dateArr[0]; // 앞에 년도 넣어주기
+			var _link = data[i].link;	//기사와 연결된 link
+				/*연도 1945 입력 이 부분은 이제 data 로 받아와야함*/
+			   var table1=$("<tr></tr>").append($("<td></td>").addClass('year').text(yearNumber)).append($("<td></td>").text(""));
+			   tb.append(table1);
+	
+	
+			   var table2 = $("<tr/>")
+			   .append($("<td/>").addClass('year').text(""))
+			   .append($("<td></td>").addClass('cont')
+						   .append($("<h1></h1>").text(dateArr[1]+"월 "+dateArr[2]+"일"))
+						   .append($("<br>"))
+						   .append($("<img>",{
+							   src:imgSrc,
+							   align:"left",
+							   alt:"180 X 180"
+						   }))
+						   .append($("<span/>").addClass('article-head').text(article_Title))
+						.append($("<div/>").text(article_Content).addClass('article=main'))
+						   .append($("<p/>").text(_link).addClass("link"))); //link 추가
+	
+			   tb.append(table2);
+			}
+			   /*반복 끝*/
+			   // for(var i = 0 ; i<8; i++)
+			$("#new").html(tb);
+		});
+	});
  }
 
 
@@ -219,7 +203,7 @@ function fill_note(src_dir)
  /**
   * @function	오늘의_역사_관리
   * @var 		today_historys[]							오늘의 날짜에 띄울 사건들 저장하는 배열. 최대 5개까지만 저장.
-  * @property	{title, date, summary, image, link, dist}	dist: 현재 날짜와 사건 날짜까지의 차이	
+  * @property	{title, date, content, image, link, dist}	dist: 현재 날짜와 사건 날짜까지의 차이	
   * @method		change_today_history 						오늘의 역사 전환
   * @method		calculate_dist(today,date)					오늘 날짜와 date의 날짜 차이 계산
   * @method		init_today_history							오늘의 역사 배열(today_historys) 초기화
@@ -240,7 +224,7 @@ function init_today_history()
 	.done((data)=>
 	{
 		total_lists = data;
-		get_summary_of_years(total_lists);
+		get_content_of_years(total_lists);
 		
 		set_history_to_home(today_historys[today_index]);
 	});
@@ -259,12 +243,11 @@ function change_today_history()
 }
 
 
-
 //오늘의 역사 화면 띄우기
 function set_history_to_home(hist)
 {
 	$("#todaytitle").text(hist.title);
-	$("#todaycontent").text(hist.summary);
+	$("#todaycontent").text(hist.content);
 	$("#todaybutton").children(".link").text(hist.link);
 	$("#todayphoto").attr("src", hist.image);
 }
@@ -306,7 +289,7 @@ function add_article_to_history(hist_array, article, dist)
 
 
 //시대별 사건 목록을 돌며 각 사건들의 정보 얻어옴
-function get_summary_of_years(total_lists)
+function get_content_of_years(total_lists)
 {
 	//year_lists: 각 시대별 리스트
 	$.each(total_lists, (index, year_lists)=>
@@ -318,13 +301,13 @@ function get_summary_of_years(total_lists)
 		//articles: 시대별 리스트 안에 있는 각각의 사건
 		.done((articles)=>
 		{
-			today_historys = get_summary_of_articles(articles);
+			today_historys = get_content_of_articles(articles);
 		});
 	});
 }
 
 //각각의 사건들을 돌며 오늘의 역사 배열에 추가
-function get_summary_of_articles(articles)
+function get_content_of_articles(articles)
 {
 	var date = new Date();
 	var today = [date.getFullYear(), date.getMonth()+1, date.getDate()];
