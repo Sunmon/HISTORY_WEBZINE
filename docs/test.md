@@ -97,3 +97,41 @@ js도 java랑 비슷하다..
 포인터 쓰고 싶다 엉엉
 
 https://emflant.tistory.com/64
+
+## 얕은 복사 & 깊은 복사
+
+history에 객체를 추가하는 데 자꾸 오류가 났다... undefined랜다..
+
+
+얕은 복사와 깊은 복사 : https://blueshw.github.io/2016/01/20/shallow-copy-deep-copy/
+
+
+## 클로저
+
+http://www.nextree.co.kr/p7363/
+
+
+## 동기화 & 비동기화
+
+ajax에서 결과를 얻어오는데 자꾸 글로벌 변수에 저장이 안 되고 사라진다..
+
+왜일까.. 하고 엄청 고민했다..
+
+정답은 ajax가 비동기식이었기 때문이다..
+
+done에서 불러서 하는건 하는거고...
+
+done 밑의 코드로 알아서 쭉쭉 진행되고 있던거였다...
+
+그러니까 done 밖의 전역변수는.. 못 썼지..
+
+https://stackoverflow.com/questions/5316697/jquery-return-data-after-ajax-call-success
+
+그래서 그냥 done(function())에서 다 만들어주기로 했따..
+
+그래도 안 됐다... ajax를 두 번 써서 그런가...
+
+결국 **async:false** 옵션을 써서 해결했다!!!
+
+해결법: https://stackoverflow.com/questions/17981631/jquery-ajax-inside-a-loop
+
