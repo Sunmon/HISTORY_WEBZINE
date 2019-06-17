@@ -22,6 +22,6 @@ ppt, 발표자료, 설명서
 
 .js, .html, .css 등등
 
-`. /articles`
+`. /include`
 
 기사를 저장하는 폴더
