@@ -1,9 +1,128 @@
-[{
-    "title": "자리채우기용 1965",
-    "date": "9999-99-99",
-    "image": "http://placehold.it/100X100",
-    "link": "/include/2015/2015-01-01-test.html",   
-    "content": "자리채우기용",
+﻿[
+{
+    "title": "한일기본조약이 조인되어 국교가 정상화",
+    "date": "1965-06-22",
+    "image": "./include/1965/assets/한일기본조약.jpg",
+    "link": "/include/1965/1965-06-22.html",   
+    "content": "",
     "tag": [
+	"한일기본조약",
+	"대한민국",
+	"일본"
     ]
-}]
+},
+{
+    "title": "산림청 발족.",
+    "date": "1966-08-03",
+    "image": "./include/1965/assets/산림청.jpg",
+    "link": "/include/1965/1966-08-03.html",   
+    "content": "",
+    "tag": [
+	"산림청"
+    ]
+},
+{
+    "title": "제 6대 대통령 선거, 박정희 당선.",
+    "date": "1967-05-03",
+    "image": "./include/1965/assets/박정희.png",
+    "link": "/include/1965/1967-05-03.html", 
+    "content": "",
+    "tag": [
+	"대통령",
+	"박정희",
+	"선거"
+    ]
+},
+{
+    "title": "국민교육헌장 선포.",
+    "date": "1968-12-05",
+    "image": "./include/1965/assets/국민교육헌장.jpg",
+    "link": "/include/1965/1968-12-05.html", 
+    "content": "",
+    "tag": [
+	"국민",
+	"국민교육헌장",
+	"새마을운동"
+    ]
+},
+{
+    "title": "김수환 대주교, 추기경에 서품",
+    "date": "1969-03-28",
+    "image": "./include/1965/assets/김수환.jpg",
+     "link": "/include/1965/1969-03-28.html", 
+    "content": "",
+    "tag": [
+	"추기경",
+	"대주교",
+	"김수환"
+    ]
+},
+{
+    "title": "남북평화통일에 관한 8.15선언 발표",
+    "date": "1970-08-15",
+    "image": "./include/1965/assets/남북평화통일.jpg",
+     "link": "/include/1965/1970-08-15.html", 
+    "content": "",
+    "tag": [
+	"남북",
+	"남북평화통일",
+	"8.15"
+    ]
+},
+{
+    "title": "전태일 분신 사건",
+    "date": "1970-11-13",
+    "image": "./include/1965/assets/전태일.jpg",
+    "link": "/include/1965/1970-11-13.html",  
+    "content": "",
+    "tag": [
+	"전태일",
+	"분신"
+    ]
+},
+{
+    "title": "제 7대 대통령선거 박정희 당선.",
+    "date": "1971-07-01",
+    "image": "./include/1965/assets/박정희7.jpg",
+     "link": "/include/1965/1971-07-01.html", 
+    "content": "",
+    "tag": [
+	"박정희",
+	"대통령",
+	"선거"
+    ]
+},
+{
+    "title": "대한민국 유신헌법이 공포",
+    "date": "1972-12-27",
+    "image": "./include/1965/assets/유신헌법공포.jpg",
+    "link": "/include/1965/1972-12-27.html", 
+    "content": "",
+    "tag": [
+	"유신헌법",
+	"대한민국"
+    ]
+},
+{
+    "title": "6.23외교 선언.",
+    "date": "1973-06-23",
+    "image": "./include/1965/assets/623외교선언.jpg",
+    "link": "/include/1965/1973-06-23.html", 
+    "content": "",
+    "tag": [
+	"6.23외교"
+    ]
+},
+{
+    "title": "영부인 육영수 피격당해 서거",
+    "date": "1974-08-15",
+    "image": "./include/1965/assets/육영수.jpg",
+    "link": "/include/1965/1974-08-15.html", 
+    "content": "",
+    "tag": [
+	"피격",
+	"영부인",
+	"육영수"
+    ]
+}
+]
