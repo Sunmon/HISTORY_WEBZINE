@@ -178,3 +178,15 @@ $.click을 웹페이지 로딩시 한번만 실행하는 것으로 해결했다.
 
 
 
+### word-wrap 적용 안 되던 문제
+
+word-wrap, word-break를 아무리 해도 줄이 다음줄으로 넘어가지 않았다..
+
+```css
+  white-space:normal;
+    word-wrap:break-word;
+    word-break:break-all;
+	width: 100%;
+```
+
+이렇게 white-space 옵션을 주니까 해결됐당!

@@ -238,10 +238,6 @@ function change_today_history()
 	today_index >= 0? today_index %= len : today_index = len-1;
 
 	set_history_to_home(today_historys[today_index]);
-
-
-	
-
 }
 
 
