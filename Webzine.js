@@ -5,40 +5,45 @@ $(document).ready(function(){
 	$("#new").css("width",$(window).width()-300);
 
 	$("#_1945").hover(function(){
-	$("#_1945").attr("src","source/timebarhover1.png");
+	$("#_1945").attr("src","source/timebarhover1.jpg");
 	},function(){
-		$("#_1945").attr("src","source/timebar1.png");
+		$("#_1945").attr("src","source/timebar1.jpg");
 	})
 
     
 	$(".timebar").hover(function(){
-	$(this).attr("src","source/timebarhover2.png");
+	$(this).attr("src","source/timebarhover2.jpg");
 	},function(){
-		$(this).attr("src","source/timebar2.png");
+		$(this).attr("src","source/timebar2.jpg");
 	})
 
 
 	$("#_2015").hover(function(){
-		$("#_2015").attr("src","source/timebarhover3.png");
+		$("#_2015").attr("src","source/timebarhover3.jpg");
 	},function(){
-		$("#_2015").attr("src","source/timebar3.png");
+		$("#_2015").attr("src","source/timebar3.jpg");
 	})
 
 	/* 연표 클릭 */
 	$(".timebar_click").click(function(){
-		$("#new").css("display","block");
-		create_Table($(this).attr("id"));
-		var offset=$("#new").offset();
-  
-		$("html, body").animate({scrollTop:offset.top},"fast");
-	 });
-  
-	  // 검색 클릭
-	  $(".fa.fa-search").click(function(){
-		  $("#new").css("display","none");
-		  search_contains();
-	  });
-  
+      $("#new").css("display","block");
+      create_Table($(this).attr("id"));
+      var offset=$("#new").offset();
+
+      $("html, body").animate({scrollTop:offset.top},"fast");
+   });
+
+	// 검색 클릭
+	$(".fa.fa-search").click(function(){
+		$("#new").css("display","none");
+		search_contains();
+	});
+
+	//GOOD!
+	// $(".cont").on("click",show_note_form); // 요놈은 미리 생성되어 있어야만 가능한데 
+	$(document).on("click",".cont",show_note_form); // 요놈은 동적생성해도 가능함 ^^~
+	$("#close").on("click",push_note);
+	
 	/**
 	 *****[테스트] server쪽 테스트중**
 	 */
@@ -143,14 +148,7 @@ function create_Table(id){
         	 $("#new").css("background","#DCAD67"); //#AC58FA
       		}
      		else
-				  $("#new").css("background","#F5D08A"); //#F781F3
-				  
-			//background바꾸기 코드정리
-			// var backgroundColor = ["#F2F5A9", "#BCF5A9", "#A9F5BC", "#81F7D8", "#81BEF7", "#8181F7", "#AC58FA", "#F781F3"];
-			// var _year = id.split("_")[1];
-			// _year = (_year - 1945)/10;
-			// $("#new").css("background", backgroundColor[_year]);
-
+      			$("#new").css("background","#F5D08A"); //#F781F3
 		});
 	});
  }
@@ -246,7 +244,6 @@ function change_today_history()
 function set_history_to_home(hist)
 {
 	$("#todaytitle").text(hist.title);
-	// $("#todaycontent").text(hist.content);
 	$("#todaycontent").text(hist.tag);
 	$("#todaydate").text(hist.date);
 	$("#todaybutton").children(".link").text(hist.link);
@@ -321,9 +318,7 @@ function get_content_of_articles(articles)
 		max_dist = today_historys[today_historys.length-1].dist;
 	});
 	return today_historys;
-	
-
-
+}
 
 // search 알고리즘 만들기
 function search_contains(){
@@ -416,5 +411,4 @@ function search_contains(){
 			// document.write('article_Content');
 	// document.write('ss');
 
-}
 }
