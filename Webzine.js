@@ -1,9 +1,19 @@
 var number=0;
 
 $(document).ready(function(){
+	
 	$("#all").css("width",$(window).width()-100);
 	$("#new").css("width",$(window).width()-300);
+	
+	/*
+	$(window).resize(function(){
+		$("#all").css('width',$(window).width()-100);
+		$("#new").css("width",$(window).width()-300);
+	});
+	*/
 
+
+        
 	$("#_1945").hover(function(){
 	$("#_1945").attr("src","source/timebarhover1.jpg");
 	},function(){
@@ -107,28 +117,28 @@ function create_Table(id){
 			$("#new").html(tb);
 
 			if(id=="_1945"){
-        	 $("#new").css("background","#F2F5A9");
+        	 $("#new").css("background","#8B4513"); //#F2F5A9
       		}
       		else if(id=="_1955"){
-        	 $("#new").css("background","#BCF5A9");
+        	 $("#new").css("background","#8B6331"); //#BCF5A9
       		}
       		else if(id=="_1965"){
-        	 $("#new").css("background","#A9F5BC");
+        	 $("#new").css("background","#AE5E1A"); //#A9F5BC
       		}
       		else if(id=="_1975"){
-      		   $("#new").css("background","#81F7D8");
+      		   $("#new").css("background","#D27328"); //#81F7D8
       		}
       		else if(id=="_1985"){
-        	 $("#new").css("background","#81BEF7");
+        	 $("#new").css("background","#DC9146"); //#81BEF7
       		}
       		else if(id=="_1995"){
-        	 $("#new").css("background","#8181F7");
+        	 $("#new").css("background","#F0B469"); //#8181F7
       		}	
       		else if(id=="_2005"){
-        	 $("#new").css("background","#AC58FA");
+        	 $("#new").css("background","#DCAD67"); //#AC58FA
       		}
      		else
-      			$("#new").css("background","#F781F3");
+      			$("#new").css("background","#F5D08A"); //#F781F3
 		});
 	});
  }
