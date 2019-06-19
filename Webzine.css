@@ -282,10 +282,15 @@ table{
     border: 1px solid black; color: black;overflow: scroll;
 }
 #note_form{display: none;}
+
 #notef{
+    white-space:normal;
+    word-wrap:break-word;
     word-break:break-all;
+    width: 100%;
 
 }
+
 #close{
     position: absolute;
     right: 0;
