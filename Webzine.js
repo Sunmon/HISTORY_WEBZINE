@@ -106,29 +106,35 @@ function create_Table(id){
 			   // for(var i = 0 ; i<8; i++)
 			$("#new").html(tb);
 
-			if(id==1945){
-        	 $("#new").css("background","#F2F5A9");
-      		}
-      		else if(id==1955){
-        	 $("#new").css("background","#BCF5A9");
-      		}
-      		else if(id==1965){
-        	 $("#new").css("background","#A9F5BC");
-      		}
-      		else if(id==1975){
-      		   $("#new").css("background","#81F7D8");
-      		}
-      		else if(id==1985){
-        	 $("#new").css("background","#81BEF7");
-      		}
-      		else if(id==1995){
-        	 $("#new").css("background","#8181F7");
-      		}	
-      		else if(id==2005){
-        	 $("#new").css("background","#AC58FA");
-      		}
-     		else
-      			$("#new").css("background","#F781F3");
+			var backgroundColor = ["#F2F5A9", "#BCF5A9", "#A9F5BC", "#81F7D8", "#81BEF7", "#8181F7", "#AC58FA", "#F781F3"];
+			var _year = id.split("_")[1];
+			_year = (_year - 1945)/10;
+			$("#new").css("background", backgroundColor[_year]);
+
+
+			// if(id==1945){
+        	//  $("#new").css("background","");
+      		// }
+      		// else if(id==1955){
+        	//  $("#new").css("background",);
+      		// }
+      		// else if(id==1965){
+        	//  $("#new").css("background",);
+      		// }
+      		// else if(id==1975){
+      		//    $("#new").css("background",);
+      		// }
+      		// else if(id==1985){
+        	//  $("#new").css("background",);
+      		// }
+      		// else if(id==1995){
+        	//  $("#new").css("background",);
+      		// }	
+      		// else if(id==2005){
+        	//  $("#new").css("background",);
+      		// }
+     		// else
+      		// 	$("#new").css("background",);
 		});
 	});
  }
