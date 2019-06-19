@@ -1,26 +1,27 @@
 var number=0;
 
 $(document).ready(function(){
-
+	$("#all").css("width",$(window).width()-100);
+	$("#new").css("width",$(window).width()-300);
 
 	$("#_1945").hover(function(){
-	$("#_1945").attr("src","source/timebarhover1.jpg");
+	$("#_1945").attr("src","source/timebarhover1.png");
 	},function(){
-		$("#_1945").attr("src","source/timebar1.jpg");
+		$("#_1945").attr("src","source/timebar1.png");
 	})
 
     
 	$(".timebar").hover(function(){
-	$(this).attr("src","source/timebarhover2.jpg");
+	$(this).attr("src","source/timebarhover2.png");
 	},function(){
-		$(this).attr("src","source/timebar2.jpg");
+		$(this).attr("src","source/timebar2.png");
 	})
 
 
 	$("#_2015").hover(function(){
-		$("#_2015").attr("src","source/timebarhover3.jpg");
+		$("#_2015").attr("src","source/timebarhover3.png");
 	},function(){
-		$("#_2015").attr("src","source/timebar3.jpg");
+		$("#_2015").attr("src","source/timebar3.png");
 	})
 
 	/* 연표 클릭 */
@@ -104,6 +105,30 @@ function create_Table(id){
 			   /*반복 끝*/
 			   // for(var i = 0 ; i<8; i++)
 			$("#new").html(tb);
+
+			if(id==1945){
+        	 $("#new").css("background","#F2F5A9");
+      		}
+      		else if(id==1955){
+        	 $("#new").css("background","#BCF5A9");
+      		}
+      		else if(id==1965){
+        	 $("#new").css("background","#A9F5BC");
+      		}
+      		else if(id==1975){
+      		   $("#new").css("background","#81F7D8");
+      		}
+      		else if(id==1985){
+        	 $("#new").css("background","#81BEF7");
+      		}
+      		else if(id==1995){
+        	 $("#new").css("background","#8181F7");
+      		}	
+      		else if(id==2005){
+        	 $("#new").css("background","#AC58FA");
+      		}
+     		else
+      			$("#new").css("background","#F781F3");
 		});
 	});
  }
