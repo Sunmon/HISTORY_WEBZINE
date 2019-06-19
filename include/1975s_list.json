@@ -1,9 +1,174 @@
-[{
-    "title": "자리채우기용 1975",
-    "date": "9999-99-99",
+﻿[{
+    "title": "동해고속도로 준공",
+    "date": "1975-01-28",
     "image": "http://placehold.it/100X100",
-    "link": "/include/2015/2015-01-01-test.html",   
-    "content": "자리채우기용",
+    "link": "/include/1975/1975-01-28.html",   
+    "content": "",
     "tag": [
+	"1975",
+	"동해고속도로"
     ]
-}]
+},
+{
+    "title": "유신헌법 찬반 국민투표 실피, 가결",
+    "date": "1975-02-12",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1975-02-12.html",   
+    "content": "",
+    "tag": [
+	"1975",
+	"유신헌법"
+    ]
+},
+{
+    "title": "여의도 국회의사당 준공",
+    "date": "1975-09-01",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1975-09-01.html",   
+    "content": "",
+    "tag": [
+	"1975",
+	"여의도 국회의사당"
+    ]
+},
+{
+    "title": "민주구국선언문 발표",
+    "date": "1976-03-01",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1976-03-01.html",   
+    "content": "",
+    "tag": [
+	"1976",
+	"민주구국선언문"
+    ]
+},
+{
+    "title": "판문점 도끼 만행사건 발생",
+    "date": "1976-08-18",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1976-08-18.html",   
+    "content": "",
+    "tag": [
+	"1976",
+	"판문점",
+	"도끼 만행사건"
+    ]
+},
+{
+    "title": "국내 최초 고리원자력발전소 1호기 점화",
+    "date": "1977-06-09",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1977-06-09.html",   
+    "content": "",
+    "tag": [
+	"1977",
+	"고리원자력발전소 1호기"
+    ]
+},
+{
+    "title": "임시행정수도건설특별조치법",
+    "date": "1977-06-18",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1977-06-18.html",   
+    "content": "",
+    "tag": [
+	"1977",
+	"임시행정수도건설특별조치법"
+    ]
+},
+{
+    "title": "한미연합군사령부 발족",
+    "date": "1978-11-07",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1978-11-07.html",   
+    "content": "",
+    "tag": [
+	"1978",
+	"한미연합군사령부"
+    ]
+},
+{
+    "title": "YH 사건",
+    "date": "1979-08-11",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1979-08-11.html",   
+    "content": "",
+    "tag": [
+	"1979",
+	"YH"
+    ]
+},
+{
+    "title": "10.26사건, 비상계엄 선포",
+    "date": "1979-08-11",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1979-08-11.html",
+    "content": "",
+    "tag": [
+	"1979",
+	"10.26",
+	"비상계엄"
+    ]
+},
+{
+    "title": "5.18 광주 민주화 운동",
+    "date": "1980-05-18",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1980-05-18.html",
+    "content": "",
+    "tag": [
+	"1980",
+	"5.18",
+	"광주 민주화 운동"
+    ]
+},
+{
+    "title": "제 5공화국 헌법 공포",
+    "date": "1980-10-27",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1980-10-27.html",
+    "content": "",
+    "tag": [
+	"1980",
+	"5.18",
+	"제 5공화국",
+	"헌법"
+    ]
+},
+{
+    "title": "아웅산묘역 폭탄테러사건",
+    "date": "1983-10-09",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1983-10-09.html",
+    "content": "",
+    "tag": [
+	"1983",
+	"아웅산묘역",
+	"폭탄테러"
+    ]
+},
+{
+    "title": "민주화추진협의회 발족",
+    "date": "1984-05-18",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1984-05-18.html",
+    "content": "",
+    "tag": [
+	"1984",
+	"민주화추진협의회"
+    ]
+},
+{
+    "title": "부산 도시철도 1호선 개통",
+    "date": "1985-07-19",
+    "image": "http://placehold.it/100X100",
+    "link": "/include/1975/1985-07-19.html",
+    "content": "",
+    "tag": [
+	"1985",
+	"부산",
+	"도시철도",
+	"1호선"
+    ]
+}
+]

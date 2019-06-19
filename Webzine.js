@@ -37,6 +37,10 @@ $(document).ready(function(){
 	$(".fa.fa-search").click(function(){
 		$("#new").css("display","none");
 		search_contains();
+
+		// var offset2=$("#new").offset();
+
+  //     $("html, body").animate({scrollTop:offset2.top},"fast");
 	});
 
 	//GOOD!

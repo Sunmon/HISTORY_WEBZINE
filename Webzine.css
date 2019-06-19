@@ -28,10 +28,10 @@ header{
 }
 header p{
     position: absolute;
-    padding: 0 450px;
+    padding: 0 400px;
     color: black;
     font-family: 'Dokdo', cursive;
-    text-align: center;
+    /*text-align: center;*/
     font-size: 80px;
     /*font-family: "Baloo Da";*/
     height: 110px;
