@@ -97,13 +97,15 @@ function create_Table(id){
 							   alt:"180 X 180"
 						   }))
 						   .append($("<span/>").addClass('article-head').text(article_Title))
-						.append($("<div/>").text(article_Content).addClass('article=main'))
+						.append($("<div/>").text(article_Content).addClass('article-main'))
 						   .append($("<p/>").text(_link).addClass("link"))); //link 추가
+						   
 	
 			   tb.append(table2);
 			}
-			   /*반복 끝*/
-			   // for(var i = 0 ; i<8; i++)
+
+			/*반복 끝*/
+			// for(var i = 0 ; i<8; i++)
 			$("#new").html(tb);
 
 
