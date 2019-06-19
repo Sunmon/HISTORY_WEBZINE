@@ -16,11 +16,12 @@ body {
     /*background: black;*/
 }
 #all{
-
+    /*position: absolute;*/
+    /*left: 30px;*/
     margin: 0 50px;
     background: #E7E5DD;
     white-space: nowrap;
-    width: 100%;
+    /*width: 100%;*/
 
 }
 header{

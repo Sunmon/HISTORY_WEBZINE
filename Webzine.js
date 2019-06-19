@@ -1,8 +1,11 @@
 var number=0;
 
 $(document).ready(function(){
-	$("#all").css("width",$(window).width()-100);
-	$("#new").css("width",$(window).width()-300);
+
+
+	$("#all").css("width",screen.availWidth-100);
+	$("#new").css("width",screen.availWidth-300);
+
 
 	$("#_1945").hover(function(){
 	$("#_1945").attr("src","source/timebarhover1.jpg");
@@ -180,8 +183,6 @@ function push_note(){
 
 
 function change_position(obj){
-	// obj.css("left",($(window).width()-$("#note_form").width())/2);
-	// obj.css("top",($(window).height()-$("#note_form").height())/2);
 
 	var l=($(window).width()-obj.width())/2+300;
 	var t=($(window).height()-obj.height())/2-50;
