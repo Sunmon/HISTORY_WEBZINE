@@ -106,25 +106,25 @@ function create_Table(id){
 			   // for(var i = 0 ; i<8; i++)
 			$("#new").html(tb);
 
-			if(id==1945){
+			if(id=="_1945"){
         	 $("#new").css("background","#F2F5A9");
       		}
-      		else if(id==1955){
+      		else if(id=="_1955"){
         	 $("#new").css("background","#BCF5A9");
       		}
-      		else if(id==1965){
+      		else if(id=="_1965"){
         	 $("#new").css("background","#A9F5BC");
       		}
-      		else if(id==1975){
+      		else if(id=="_1975"){
       		   $("#new").css("background","#81F7D8");
       		}
-      		else if(id==1985){
+      		else if(id=="_1985"){
         	 $("#new").css("background","#81BEF7");
       		}
-      		else if(id==1995){
+      		else if(id=="_1995"){
         	 $("#new").css("background","#8181F7");
       		}	
-      		else if(id==2005){
+      		else if(id=="_2005"){
         	 $("#new").css("background","#AC58FA");
       		}
      		else
