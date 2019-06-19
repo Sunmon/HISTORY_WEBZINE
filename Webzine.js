@@ -28,13 +28,17 @@ $(document).ready(function(){
 	$(".timebar_click").click(function(){
 		$("#new").css("display","block");
 		create_Table($(this).attr("id"));
-	});
-
-	//GOOD!
-	// $(".cont").on("click",show_note_form); // 요놈은 미리 생성되어 있어야만 가능한데 
-	$(document).on("click",".cont",show_note_form); // 요놈은 동적생성해도 가능함 ^^~
-	$("#close").on("click",push_note);
-	
+		var offset=$("#new").offset();
+  
+		$("html, body").animate({scrollTop:offset.top},"fast");
+	 });
+  
+	  // 검색 클릭
+	  $(".fa.fa-search").click(function(){
+		  $("#new").css("display","none");
+		  search_contains();
+	  });
+  
 	/**
 	 *****[테스트] server쪽 테스트중**
 	 */
@@ -70,11 +74,19 @@ function create_Table(id){
 			var article_Title = "article타이틀"; // 기사 제목
 			var article_Content = "main"; // 기사 내용
 			var yearNumber = "1945"; // 앞에 연도
-	
+			var article_tag = "";
+
 			imgSrc = data[i].image;
 			article_Title = data[i].title; // 기사 제목 json 파일에서 불러오기
 			article_Content = data[i].content; // 기사 내용 json 파일에서 불러오기
-	
+			article_tag = data[i].tag; // 기사 내용 json 파일에서 불러오기
+			/*json 데이터 불러오기 끝*/
+
+
+		var tag_split = "";
+		for(var j=0; j<data[i].tag.length; j++){
+			tag_split += "#"+article_tag[j]+" ";
+		}
 			
 			var date = data[i].date; // 역사 날짜
 			var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
@@ -94,46 +106,45 @@ function create_Table(id){
 						   .append($("<img>",{
 							   src:imgSrc,
 							   align:"left",
-							   alt:"180 X 180"
+							   alt:article_tag,
+							   width:"200px",
+							   height:"200px"
 						   }))
 						   .append($("<span/>").addClass('article-head').text(article_Title))
-						.append($("<div/>").text(article_Content).addClass('article-main'))
+						// .append($("<div/>").text(article_Content).addClass('article-main'))
+						.append($("<div/>").text(tag_split).addClass('article-main'))
 						   .append($("<p/>").text(_link).addClass("link"))); //link 추가
-						   
 	
 			   tb.append(table2);
 			}
-
-			/*반복 끝*/
-			// for(var i = 0 ; i<8; i++)
+			   /*반복 끝*/
+			   // for(var i = 0 ; i<8; i++)
 			$("#new").html(tb);
 
-
 			if(id=="_1945"){
-        	 $("#new").css("background","#F2F5A9");
+        	 $("#new").css("background","#8B4513"); //#F2F5A9
       		}
       		else if(id=="_1955"){
-        	 $("#new").css("background","#BCF5A9");
+        	 $("#new").css("background","#8B6331"); //#BCF5A9
       		}
       		else if(id=="_1965"){
-        	 $("#new").css("background","#A9F5BC");
+        	 $("#new").css("background","#AE5E1A"); //#A9F5BC
       		}
       		else if(id=="_1975"){
-      		   $("#new").css("background","#81F7D8");
+      		   $("#new").css("background","#D27328"); //#81F7D8
       		}
       		else if(id=="_1985"){
-        	 $("#new").css("background","#81BEF7");
+        	 $("#new").css("background","#DC9146"); //#81BEF7
       		}
       		else if(id=="_1995"){
-        	 $("#new").css("background","#8181F7");
+        	 $("#new").css("background","#F0B469"); //#8181F7
       		}	
       		else if(id=="_2005"){
-        	 $("#new").css("background","#AC58FA");
+        	 $("#new").css("background","#DCAD67"); //#AC58FA
       		}
      		else
-				  $("#new").css("background","#F781F3");
+				  $("#new").css("background","#F5D08A"); //#F781F3
 				  
-
 			//background바꾸기 코드정리
 			// var backgroundColor = ["#F2F5A9", "#BCF5A9", "#A9F5BC", "#81F7D8", "#81BEF7", "#8181F7", "#AC58FA", "#F781F3"];
 			// var _year = id.split("_")[1];
@@ -235,7 +246,8 @@ function change_today_history()
 function set_history_to_home(hist)
 {
 	$("#todaytitle").text(hist.title);
-	$("#todaycontent").text(hist.content);
+	// $("#todaycontent").text(hist.content);
+	$("#todaycontent").text(hist.tag);
 	$("#todaydate").text(hist.date);
 	$("#todaybutton").children(".link").text(hist.link);
 	$("#todayphoto").attr("src", hist.image);
@@ -309,4 +321,100 @@ function get_content_of_articles(articles)
 		max_dist = today_historys[today_historys.length-1].dist;
 	});
 	return today_historys;
+	
+
+
+
+// search 알고리즘 만들기
+function search_contains(){
+	
+	var value = $("#search-value").val();
+	// document.write(value);
+	var req=$.ajax("");
+	var tb = $("<table></table>"); //table태그 만들기
+
+	 for(var s=0; s<8; s++){
+
+	 	switch(s){
+	 		case 0: req=$.ajax("/include/1945s_list.json"); break;
+	 		case 1: req=$.ajax("/include/1955s_list.json"); break;
+	 		case 2: req=$.ajax("/include/1965s_list.json"); break;
+	 		case 3: req=$.ajax("/include/1975s_list.json"); break;
+	 		case 4: req=$.ajax("/include/1985s_list.json"); break;
+	 		case 5: req=$.ajax("/include/1995s_list.json"); break;
+	 		case 6: req=$.ajax("/include/2005s_list.json"); break;
+	 		case 7: req=$.ajax("/include/2015s_list.json"); break;
+	 	}
+
+		 // req=$.ajax("test_1995s_list.json");
+		 req.done(function(data,status){
+			for(var i=0; i<data.length; i++){
+
+				var tag = data[i].tag;
+
+				// 검색값이 태그값과 같은지 묻기
+				for(var j=0; j<tag.length; j++){
+					if(tag[j] == value){
+						// 같으면 테이블 생성임
+
+						var imgSrc = "http://placehold.it/180X180"; // 이미지 주소
+						var article_Title = "article타이틀"; // 기사 제목
+						var article_Content = "main"; // 기사 내용
+						var article_Tag = "tag"; // 기사 내용
+						var yearNumber = "1945"; // 앞에 연도
+						var _link = data[i].link;	//기사와 연결된 link
+						imgSrc = data[i].image;
+						article_Title = data[i].title; // 기사 제목 json 파일에서 불러오기
+						article_Content = data[i].content; // 기사 태그 json 파일에서 불러오기
+						article_Tag = data[i].tag; // 기사 태그 json 파일에서 불러오기
+						// article_Content = data[i].content; // 기사 내용 json 파일에서 불러오기
+						/*기사 태그 #태그 붙여주기~*/
+						var tag_split = "";
+						for(var z=0; z<data[i].tag.length; z++){
+							tag_split += "#"+article_Tag[z]+" ";
+						}						
+
+						var date = data[i].date; // 역사 날짜
+						var dateArr = date.split('-'); // 역사 날짜를 받아서 '-'를 기준으로
+						 // 3개로 나눈것 ex 1999-04-14 면 dateArr[0] == 1999, dateArr[1] == 04, dateArr[2] == 14 참고로 이건 내생일 ㅎㅎ;
+						yearNumber = dateArr[0]; // 앞에 년도 넣어주기
+
+						/*연도 1945 입력 이 부분은 이제 data 로 받아와야함*/
+						   var table1=$("<tr></tr>").append($("<td></td>").addClass('year').text(yearNumber)).append($("<td></td>").text(""));
+						   tb.append(table1);
+
+						   var table2 = $("<tr/>").append($("<td/>").addClass('year').text("")).append($("<td></td>").addClass('cont').append($("<h1></h1>").text(dateArr[1]+"월 "+dateArr[2]+"일")).append($("<br>")).append($("<img>",{
+							   src:imgSrc,
+							   align:"left",
+							   alt:data[i].tag,
+							   width:"200px",
+							   height:"200px"
+						   })).append($("<span/>").addClass('article-head').text(article_Title))
+						// .append($("<div/>").text(article_Content).addClass('article-main'))
+						.append($("<div/>").text(tag_split).addClass('article-main'))
+						   .append($("<p/>").text(_link).addClass("link"))); //link 추가
+						   tb.append(table2);
+
+
+						$("#new").css("display","block");		
+						// create_Table(1945);
+
+					}
+						
+				}
+
+
+			}
+		})
+
+	 }
+	 /*검색 했을 때 배경색*/
+	$("#new").css("background","#F5D08A");
+
+
+	$("#new").html(tb);
+			// document.write('article_Content');
+	// document.write('ss');
+
+}
 }
