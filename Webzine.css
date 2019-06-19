@@ -277,7 +277,8 @@ table{
     position: fixed;
     top: 100px; right: 50px;
     background-image: url("source/old.jpg");
-    padding: 40px 20px;z-index: 1;width: 500px;height: 400px;
+    padding: 40px 20px;z-index: 1;
+    width: 800px;height: 600px;
     border: 1px solid black; color: black;overflow: scroll;
 }
 #note_form{display: none;}
