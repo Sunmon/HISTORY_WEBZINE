@@ -17,7 +17,7 @@ body {
 }
 #all{
     margin: 0 50px;
-    background: #F5A9A9;
+    background: #E7E5DD;
     white-space: nowrap;
 }
 header{
@@ -26,9 +26,11 @@ header{
 header p{
     position: absolute;
     padding: 0 450px;
-    color: white;
+    color: black;
+    font-family: 'Dokdo', cursive;
+    text-align: center;
     font-size: 80px;
-    font-family: "Baloo Da";
+    /*font-family: "Baloo Da";*/
     height: 110px;
 /*    overflow: hidden;*/
     white-space:nowrap
@@ -185,21 +187,24 @@ table{
     position: fixed;
     bottom: 5px;
     right: 5px;
+    cursor: pointer;
 }
 
 #left{
     position: absolute;
     top: 430px;
     left: 160px;
+    cursor: pointer;
 }
 
 #right{
     position: absolute;
     top: 430px;
     left: 1300px;
+    cursor: pointer;
 }
 
-.yearn{ color: #FAD504; }
+.yearn{ color: black; }
 
 
 /*
@@ -265,9 +270,13 @@ table{
     left: 1330px;
 }
 
-.popup{position: fixed;top: 100px;right: 50px;background-color: white;
+.popup{
+    position: fixed;
+    top: 100px; right: 50px;
+    background-image: url("source/old.jpg");
     padding: 40px 20px;z-index: 1;width: 500px;height: 400px;
-    border: 1px solid black; color: black;overflow: scroll;}
+    border: 1px solid black; color: black;overflow: scroll;
+}
 #note_form{display: none;}
 #notef{
     word-break:break-all;
@@ -277,6 +286,7 @@ table{
     position: absolute;
     right: 0;
     top: 0;
+    cursor: pointer;
 }
 
 #screen{
@@ -285,7 +295,7 @@ table{
     top: 180px;
     width: 1020px;
     height: 300px;
-    border: 3px dotted yellow;
+    border: 3px groove black;
 }
 #todayphoto{
     width: 200px;
@@ -296,27 +306,30 @@ table{
 
 }
 #todaytitle{
-    color: white;
+    color: black;
     margin: 30px 0 10px 150px ;
     font-size: 30px;
 
 }
 #todaycontent{
     position: absolute;
-    color: white;
+    color: black;
     margin: 15px 10px 10px 90px ;
     font-size: 15px;
 
 }
 #todaybutton{
-    position: absolute;
+ position: absolute;
     left: 770px;
     top: 230px;
-    border: 3px solid orange;
+    border: 3px solid #9D0606;
     width: 190px; height: 30px;
     color: white;
+    background-color: #B90000;
+    text-align: center;
+    cursor: pointer;
 }
-.today{float: left; color: white;}
+.today{float: left; color: black;}
 
 #todaydate{
     text-align:  center;

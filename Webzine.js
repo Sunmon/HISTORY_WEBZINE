@@ -5,23 +5,23 @@ $(document).ready(function(){
 	$("#new").css("width",$(window).width()-300);
 
 	$("#_1945").hover(function(){
-	$("#_1945").attr("src","source/timebarhover1.png");
+	$("#_1945").attr("src","source/timebarhover1.jpg");
 	},function(){
-		$("#_1945").attr("src","source/timebar1.png");
+		$("#_1945").attr("src","source/timebar1.jpg");
 	})
 
     
 	$(".timebar").hover(function(){
-	$(this).attr("src","source/timebarhover2.png");
+	$(this).attr("src","source/timebarhover2.jpg");
 	},function(){
-		$(this).attr("src","source/timebar2.png");
+		$(this).attr("src","source/timebar2.jpg");
 	})
 
 
 	$("#_2015").hover(function(){
-		$("#_2015").attr("src","source/timebarhover3.png");
+		$("#_2015").attr("src","source/timebarhover3.jpg");
 	},function(){
-		$("#_2015").attr("src","source/timebar3.png");
+		$("#_2015").attr("src","source/timebar3.jpg");
 	})
 
 	/* 연표 클릭 */
