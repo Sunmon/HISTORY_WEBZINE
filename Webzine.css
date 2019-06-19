@@ -28,10 +28,10 @@ header{
 }
 header p{
     position: absolute;
-    padding: 0 450px;
+    padding: 0 400px;
     color: black;
     font-family: 'Dokdo', cursive;
-    text-align: center;
+    /*text-align: center;*/
     font-size: 80px;
     /*font-family: "Baloo Da";*/
     height: 110px;
@@ -278,7 +278,7 @@ table{
     top: 100px; right: 50px;
     background-image: url("source/old.jpg");
     padding: 40px 20px;z-index: 1;
-    width: 800px;height: 600px;
+    width: 850px;height: 550px;
     border: 1px solid black; color: black;overflow: scroll;
 }
 #note_form{display: none;}
@@ -314,11 +314,12 @@ table{
     margin: 30px 0 10px 150px ;
     font-size: 30px;
 
+
 }
 #todaycontent{
     position: absolute;
     color: black;
-    margin: 15px 10px 10px 90px ;
+    margin: 15px 10px 10px 90px;
     font-size: 15px;
 
 }
@@ -336,7 +337,7 @@ table{
 .today{float: left; color: black;}
 
 #todaydate{
-    text-align:  center;
+    padding: 0 0 0 90px;
 }
 
 /* 기사와 연결되는 링크 클래스. 숨김 처리 */

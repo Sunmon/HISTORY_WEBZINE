@@ -1,0 +1,37 @@
+[{
+    "title": "년도s_list.json작성법(1)",
+    "date": "2015-01-01",
+    "image": "./include/1995/assets/sampoong.jpg",
+    "link": "/include/2015/2015-01-01-test.html",   
+    "content": "title: 사건 제목 <br> date: YYYY-MM_DD <br> image: image 링크",
+    "tag": [
+        "2015",
+        "첫번째",
+        "새해"
+    ]
+},
+{
+    "title": "json작성법(2)",
+    "date": "2017-03-13",
+    "image": "./include/1995/assets/sampoong.jpg",
+    "link": "/include/2015/2017-06-13-test.html",
+    "content": "link: 기사 링크(팝업창에 띄울 내용. html파일로!) <br> content: 지금 여기 보이는 내용. 기사 요약<br> tag: 태그",
+    "tag": [
+        "2017",
+        "내용요약",
+        "어떻게하냐"
+    ]
+},
+{
+    "title": "기사 작성 예시",
+    "date": "2019-08-22",
+    "image": "./include/2015/assets/thumb_ex.jpg",
+    "link": "/include/2015/2019-08-22-test.html",
+    "content": "기사 작성 예시입니다. 클릭시 `link`에 적은 기사가 보입니다.",
+    "tag": [
+        "2017",
+        "내용요약",
+        "어떻게하냐"
+    ]
+}
+]

@@ -37,6 +37,10 @@ $(document).ready(function(){
 	$(".fa.fa-search").click(function(){
 		$("#new").css("display","none");
 		search_contains();
+
+		// var offset2=$("#new").offset();
+
+  //     $("html, body").animate({scrollTop:offset2.top},"fast");
 	});
 
 	//GOOD!
@@ -180,7 +184,7 @@ function change_position(obj){
 	// obj.css("top",($(window).height()-$("#note_form").height())/2);
 
 	var l=($(window).width()-obj.width())/2+300;
-	var t=($(window).height()-obj.height())/2;
+	var t=($(window).height()-obj.height())/2-50;
 
 	obj.css({top:t,left:l});
 }
